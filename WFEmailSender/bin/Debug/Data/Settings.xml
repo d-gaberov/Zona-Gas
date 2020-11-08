@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Data>
+  <InvoiceEmailMessage id="a75faaf2-1897-4490-a2d1-0345d78893a7">
+    <Subject>фхсдг</Subject>
+    <Body>фхсд</Body>
+    <Waybill></Waybill>
+    <Footer>asdsssdgsdg</Footer>
+  </InvoiceEmailMessage>
+  <CertificateEmailMessage id="c600e731-ade6-46b7-8989-d2055cc74909">
+    <Subject>хсдг</Subject>
+    <Body>фхсдг</Body>
+    <Waybill></Waybill>
+    <Footer>
+sdhg
+
+
+sfdhg</Footer>
+  </CertificateEmailMessage>
+  <ReportEmailMessage id="9b4f85ef-c267-42be-a03b-5ffc8b67c0a0">
+    <Subject>sfhsfhdg</Subject>
+    <Body>shdgsdhg
+
+sfdgh
+
+dfhrg
+
+sdfhg
+sfhd</Body>
+    <Waybill></Waybill>
+    <Footer>sdfhgsfhdg</Footer>
+  </ReportEmailMessage>
+  <DefaultCredentials id="43e02680-4651-4ea5-a37c-c87b5761a6d6">
+    <Email>dimityr.gaberov@gmail.com</Email>
+    <PasswordEncoded>Mjg0NjUxMjU5</PasswordEncoded>
+    <Alias>Pesho</Alias>
+  </DefaultCredentials>
+  <DefaultDir id="2f386cf4-633b-4674-88be-d5782bf7445d">
+    <Type>Source</Type>
+    <Directory>C:\Users\PC-Admin\Desktop\New folder</Directory>
+  </DefaultDir>
+  <DefaultDir id="ce832671-f6a8-46fa-ae08-ff3be59fef8f">
+    <Type>Destination</Type>
+    <Directory>C:\Users\PC-Admin\Desktop\New folder</Directory>
+  </DefaultDir>
+  <BannerInfo id="375ac8d3-3fe9-4031-b0d4-118125764793">
+    <Directory>C:\Users\PC-Admin\Desktop\WFEmailSender\Resources\banner1.jpg</Directory>
+    <Link>google.com</Link>
+  </BannerInfo>
+  <DefaultFilesFormat id="868b49e0-b64a-40c7-9965-12fc0db7e2fe">
+    <Format>rtf</Format>
+  </DefaultFilesFormat>
+  <EmailSettings id="742ea7be-7593-44a3-b554-ca339296510a">
+    <SmtpServer>pirin.superhosting.bg</SmtpServer>
+    <Port>25</Port>
+    <IsBodyHtml>true</IsBodyHtml>
+    <UseDefaultCredentials>false</UseDefaultCredentials>
+    <EnableSsl>false</EnableSsl>
+  </EmailSettings>
+</Data>

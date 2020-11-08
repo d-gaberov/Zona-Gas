@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Data>
+  <InvoiceEmailMessage id="a75faaf2-1897-4490-a2d1-0345d78893a7">
+    <Subject></Subject>
+    <Body></Body>
+    <Waybill></Waybill>
+    <Footer></Footer>
+  </InvoiceEmailMessage>
+  <CertificateEmailMessage id="c600e731-ade6-46b7-8989-d2055cc74909">
+    <Subject></Subject>
+    <Body></Body>
+    <Waybill></Waybill>
+    <Footer></Footer>
+  </CertificateEmailMessage>
+  <ReportEmailMessage id="9b4f85ef-c267-42be-a03b-5ffc8b67c0a0">
+    <Subject></Subject>
+    <Body></Body>
+    <Waybill></Waybill>
+    <Footer></Footer>
+  </ReportEmailMessage>
+  <DefaultCredentials id="43e02680-4651-4ea5-a37c-c87b5761a6d6">
+    <Email></Email>
+    <PasswordEncoded></PasswordEncoded>
+    <Alias></Alias>
+  </DefaultCredentials>
+  <DefaultDir id="2f386cf4-633b-4674-88be-d5782bf7445d">
+    <Type>Source</Type>
+    <Directory></Directory>
+  </DefaultDir>
+  <DefaultDir id="ce832671-f6a8-46fa-ae08-ff3be59fef8f">
+    <Type>Destination</Type>
+    <Directory></Directory>
+  </DefaultDir>
+  <BannerInfo id="375ac8d3-3fe9-4031-b0d4-118125764793">
+    <Directory></Directory>
+    <Link></Link>
+  </BannerInfo>
+  <DefaultFilesFormat id="868b49e0-b64a-40c7-9965-12fc0db7e2fe">
+    <Format></Format>
+  </DefaultFilesFormat>
+  <EmailSettings id="742ea7be-7593-44a3-b554-ca339296510a">
+    <SmtpServer>smtp.gmail.com</SmtpServer>
+    <Port>465</Port>
+    <IsBodyHtml>true</IsBodyHtml>
+    <UseDefaultCredentials>false</UseDefaultCredentials>
+    <EnableSsl>true</EnableSsl>
+  </EmailSettings>
+</Data>

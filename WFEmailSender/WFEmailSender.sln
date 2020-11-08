@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFEmailSender", "WFEmailSender.csproj", "{F52EC051-35F7-4386-987E-92A71682079A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WFEmailSenderSetup", "..\WFEmailSenderSetup\WFEmailSenderSetup.vdproj", "{08AC2512-8D4E-48DE-869B-B505C1BFC4BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F52EC051-35F7-4386-987E-92A71682079A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F52EC051-35F7-4386-987E-92A71682079A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F52EC051-35F7-4386-987E-92A71682079A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F52EC051-35F7-4386-987E-92A71682079A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08AC2512-8D4E-48DE-869B-B505C1BFC4BF}.Debug|Any CPU.ActiveCfg = Debug
+		{08AC2512-8D4E-48DE-869B-B505C1BFC4BF}.Debug|Any CPU.Build.0 = Debug
+		{08AC2512-8D4E-48DE-869B-B505C1BFC4BF}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE162860-FCD2-4DA2-8FFA-2CB7317DD01D}
+	EndGlobalSection
+EndGlobal

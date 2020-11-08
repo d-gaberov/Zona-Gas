@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="WFEmailSender.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="ZonaGas\logo.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="WFEmailSender" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="WFEmailSender.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WFEmailSender.exe" size="259568">
+      <assemblyIdentity name="WFEmailSender" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>gO9eq0qqfwKY71pKl9TfUU8AHty5fdiOoMp8JAC+XkE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Data\Settings.xml" size="1567" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>bIZS87C0lYm8c7hEQDh7j2Pk23W2O1ceVyWRUf5rndE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Data\SignatureTemplate.html" size="1546">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>3glAFa7DBlNohvaWB4vCuEOt0XVZsu0Ys5tcvAgNuq0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\btnGrayBackground.jpg" size="1344">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>m6QPbkTrTer7Ee8xwsg1sigXRYxbeAhcdHJCUDpRt0Q=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\btnSendImage2.jpg" size="4637">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>nD2G1jdSbzLRQzqPQZ8Ub999XLHvgkn78/v/9krxwuQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\facebookPic.jpg" size="968">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>owdxAmiO7WuhKQYY/hlqYzQQ07QiIroNuKmvCXPH8J8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\googlePlusPic.jpg" size="1131">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>6SVnRKjUDOjUGvVPv4A0bv4CFa0x8t45eEtxBB7rfg8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\instantPot.ico" size="9078">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>tAeUBgVQ7kDGkldHIGj9gC6c8S+58J2XGS9Z39AigWk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\instantPot.jpg" size="2150">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>lMVG9lVHgsPn90DwcFSfzpSzy9mT4E9MLU7MibVKBsE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\instantPotBgColor.jpg" size="1989">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>v6akFXrNzPAjl3tWDk1eyU+vshgVPCLSacSyG/BUuX0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\instantPotImg.jpg" size="7224">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Skfp+BbuncTJSVuXShoMffcJA5UH7J2FkXAaO3Ka5VU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\logo.ico" size="9078">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>rpMc91B14CuDuk5rKBGR+ZxT+15AVNxy6YDwrYmZkTU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\logo.jpg" size="2034">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>JkB5nEeQ6Ey4ZJuX/s93dfxW1RnznOPrKnrnX1X6sZw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\newsLetterPic.jpg" size="1119">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Um6Bp7oskyUPbP+eewxZf2WkuhukCtj+6ozyFvqt1oc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\youtubePic.jpg" size="1139">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Z9YUAPZY1YWmYpFUNX4BxWrgbXG7VWDIqC3lRrTHAAU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\zonaGasBgColor.jpg" size="2562">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>BslqKqZclceXv8xkFuYLWoi51R9Z3hm+TjaXm2MTIGA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\zonaGasImg.jpg" size="11166">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>kdnMIlMa8HRVCvkLLfd02K4yPnA6b0IgsWuhOiW6Qh0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="WFdb.mdf" size="8388608" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>gSJj5GpIqfJFoqGmrK1qS73+KSi37mJ+vhnVV5kgwp4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="WFdb_log.ldf" size="8388608" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>shDIYhDhjlTtSvMh2zfsp9KeNubss7PmWqnVkMEXalY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="WFEmailSender.exe.config" size="548">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ow9O+k3+Guppqw4Y3Lxrap0mW7i+zdp8qzKeoDwqxKw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ZonaGas\logo.ico" size="9078">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>rpMc91B14CuDuk5rKBGR+ZxT+15AVNxy6YDwrYmZkTU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ZonaGas\SignatureTemplate.html" size="1547">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ebEMkfFwmWBZXII+N5Zo/EcvLGLsM7+ufVzr8knHYPo=</dsig:DigestValue>
+    </hash>
+  </file>
+</asmv1:assembly>
