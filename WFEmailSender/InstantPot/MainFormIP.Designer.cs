@@ -134,6 +134,7 @@
             this.cbDefaultUserPW.TabIndex = 51;
             this.cbDefaultUserPW.Text = "Use default";
             this.cbDefaultUserPW.UseVisualStyleBackColor = true;
+            this.cbDefaultUserPW.CheckedChanged += new System.EventHandler(this.cbDefaultEmailPW_CheckedChanged);
             // 
             // lblStatus
             // 
@@ -224,6 +225,7 @@
             this.btnBrowseDestFolder.TabIndex = 43;
             this.btnBrowseDestFolder.Text = "Browse";
             this.btnBrowseDestFolder.UseVisualStyleBackColor = true;
+            this.btnBrowseDestFolder.Click += new System.EventHandler(this.btnBrowseDestFolder_Click);
             // 
             // progressBar1
             // 
@@ -245,6 +247,7 @@
             this.btnSendEmails.Size = new System.Drawing.Size(132, 40);
             this.btnSendEmails.TabIndex = 41;
             this.btnSendEmails.UseVisualStyleBackColor = false;
+            this.btnSendEmails.Click += new System.EventHandler(this.btnSendEmails_Click);
             // 
             // lblFilesSource
             // 
@@ -311,6 +314,7 @@
             this.btnBrowseSourceFolder.TabIndex = 35;
             this.btnBrowseSourceFolder.Text = "Browse";
             this.btnBrowseSourceFolder.UseVisualStyleBackColor = true;
+            this.btnBrowseSourceFolder.Click += new System.EventHandler(this.btnSelectFolder_Click);
             // 
             // tbPassword
             // 
@@ -370,20 +374,23 @@
             // emailToolStripMenuItem
             // 
             this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
-            this.emailToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.emailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.emailToolStripMenuItem.Text = "Email";
+            this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
             // btnSwitch
             // 
