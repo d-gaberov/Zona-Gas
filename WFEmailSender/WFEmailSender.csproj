@@ -92,6 +92,12 @@
     <Compile Include="InstantPot\MainFormIP.Designer.cs">
       <DependentUpon>MainFormIP.cs</DependentUpon>
     </Compile>
+    <Compile Include="InstantPot\SettingsFormIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstantPot\SettingsFormIP.Designer.cs">
+      <DependentUpon>SettingsFormIP.cs</DependentUpon>
+    </Compile>
     <Compile Include="ZonaGas\EmailSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </Compile>
     <EmbeddedResource Include="InstantPot\MainFormIP.resx">
       <DependentUpon>MainFormIP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstantPot\SettingsFormIP.resx">
+      <DependentUpon>SettingsFormIP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ZonaGas\EmailSettingsForm.resx">
       <DependentUpon>EmailSettingsForm.cs</DependentUpon>

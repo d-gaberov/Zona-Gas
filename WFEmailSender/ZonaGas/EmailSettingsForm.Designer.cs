@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmailSettingsForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lblInvoiceFooter = new System.Windows.Forms.Label();
@@ -47,14 +48,6 @@
             this.lblCertBody = new System.Windows.Forms.Label();
             this.tbCertWaybill = new System.Windows.Forms.TextBox();
             this.tbCertBody = new System.Windows.Forms.TextBox();
-            this.lblBanner = new System.Windows.Forms.Label();
-            this.btnChangeBanner = new System.Windows.Forms.Button();
-            this.btnSaveEmailSettings = new System.Windows.Forms.Button();
-            this.pbBanner = new System.Windows.Forms.PictureBox();
-            this.lblBannerLink = new System.Windows.Forms.Label();
-            this.tbAdLink = new System.Windows.Forms.TextBox();
-            this.tbBannerDirectory = new System.Windows.Forms.TextBox();
-            this.ofdBannerDir = new System.Windows.Forms.OpenFileDialog();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lblReportFooter = new System.Windows.Forms.Label();
             this.tbReportFooter = new System.Windows.Forms.TextBox();
@@ -64,11 +57,19 @@
             this.lblReportBody = new System.Windows.Forms.Label();
             this.tbReportWaybill = new System.Windows.Forms.TextBox();
             this.tbReportBody = new System.Windows.Forms.TextBox();
+            this.lblBanner = new System.Windows.Forms.Label();
+            this.btnChangeBanner = new System.Windows.Forms.Button();
+            this.btnSaveEmailSettings = new System.Windows.Forms.Button();
+            this.pbBanner = new System.Windows.Forms.PictureBox();
+            this.lblBannerLink = new System.Windows.Forms.Label();
+            this.tbAdLink = new System.Windows.Forms.TextBox();
+            this.tbBannerDirectory = new System.Windows.Forms.TextBox();
+            this.ofdBannerDir = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -256,70 +257,6 @@
             this.tbCertBody.Size = new System.Drawing.Size(387, 138);
             this.tbCertBody.TabIndex = 21;
             // 
-            // lblBanner
-            // 
-            this.lblBanner.AutoSize = true;
-            this.lblBanner.Location = new System.Drawing.Point(12, 42);
-            this.lblBanner.Name = "lblBanner";
-            this.lblBanner.Size = new System.Drawing.Size(80, 13);
-            this.lblBanner.TabIndex = 1;
-            this.lblBanner.Text = "Current banner:";
-            // 
-            // btnChangeBanner
-            // 
-            this.btnChangeBanner.Location = new System.Drawing.Point(199, 33);
-            this.btnChangeBanner.Name = "btnChangeBanner";
-            this.btnChangeBanner.Size = new System.Drawing.Size(101, 31);
-            this.btnChangeBanner.TabIndex = 2;
-            this.btnChangeBanner.Text = "Change";
-            this.btnChangeBanner.UseVisualStyleBackColor = true;
-            this.btnChangeBanner.Click += new System.EventHandler(this.btnChangeBanner_Click);
-            // 
-            // btnSaveEmailSettings
-            // 
-            this.btnSaveEmailSettings.BackColor = System.Drawing.Color.Green;
-            this.btnSaveEmailSettings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSaveEmailSettings.Location = new System.Drawing.Point(699, 346);
-            this.btnSaveEmailSettings.Name = "btnSaveEmailSettings";
-            this.btnSaveEmailSettings.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveEmailSettings.TabIndex = 12;
-            this.btnSaveEmailSettings.Text = "Save";
-            this.btnSaveEmailSettings.UseVisualStyleBackColor = false;
-            this.btnSaveEmailSettings.Click += new System.EventHandler(this.btnSaveEmailSettings_Click);
-            // 
-            // pbBanner
-            // 
-            this.pbBanner.Location = new System.Drawing.Point(12, 155);
-            this.pbBanner.Name = "pbBanner";
-            this.pbBanner.Size = new System.Drawing.Size(288, 111);
-            this.pbBanner.TabIndex = 13;
-            this.pbBanner.TabStop = false;
-            // 
-            // lblBannerLink
-            // 
-            this.lblBannerLink.AutoSize = true;
-            this.lblBannerLink.Location = new System.Drawing.Point(9, 283);
-            this.lblBannerLink.Name = "lblBannerLink";
-            this.lblBannerLink.Size = new System.Drawing.Size(96, 13);
-            this.lblBannerLink.TabIndex = 14;
-            this.lblBannerLink.Text = "Advertisement link:";
-            // 
-            // tbAdLink
-            // 
-            this.tbAdLink.Location = new System.Drawing.Point(12, 311);
-            this.tbAdLink.Multiline = true;
-            this.tbAdLink.Name = "tbAdLink";
-            this.tbAdLink.Size = new System.Drawing.Size(288, 25);
-            this.tbAdLink.TabIndex = 26;
-            // 
-            // tbBannerDirectory
-            // 
-            this.tbBannerDirectory.Location = new System.Drawing.Point(12, 86);
-            this.tbBannerDirectory.Multiline = true;
-            this.tbBannerDirectory.Name = "tbBannerDirectory";
-            this.tbBannerDirectory.Size = new System.Drawing.Size(288, 35);
-            this.tbBannerDirectory.TabIndex = 27;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.lblReportFooter);
@@ -406,6 +343,74 @@
             this.tbReportBody.Size = new System.Drawing.Size(387, 138);
             this.tbReportBody.TabIndex = 31;
             // 
+            // lblBanner
+            // 
+            this.lblBanner.AutoSize = true;
+            this.lblBanner.Location = new System.Drawing.Point(12, 42);
+            this.lblBanner.Name = "lblBanner";
+            this.lblBanner.Size = new System.Drawing.Size(80, 13);
+            this.lblBanner.TabIndex = 1;
+            this.lblBanner.Text = "Current banner:";
+            // 
+            // btnChangeBanner
+            // 
+            this.btnChangeBanner.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnChangeBanner.BackgroundImage")));
+            this.btnChangeBanner.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangeBanner.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnChangeBanner.Location = new System.Drawing.Point(199, 33);
+            this.btnChangeBanner.Name = "btnChangeBanner";
+            this.btnChangeBanner.Size = new System.Drawing.Size(101, 31);
+            this.btnChangeBanner.TabIndex = 2;
+            this.btnChangeBanner.Text = "Change";
+            this.btnChangeBanner.UseVisualStyleBackColor = true;
+            this.btnChangeBanner.Click += new System.EventHandler(this.btnChangeBanner_Click);
+            // 
+            // btnSaveEmailSettings
+            // 
+            this.btnSaveEmailSettings.BackColor = System.Drawing.Color.Green;
+            this.btnSaveEmailSettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSaveEmailSettings.BackgroundImage")));
+            this.btnSaveEmailSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveEmailSettings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSaveEmailSettings.Location = new System.Drawing.Point(672, 346);
+            this.btnSaveEmailSettings.Name = "btnSaveEmailSettings";
+            this.btnSaveEmailSettings.Size = new System.Drawing.Size(110, 32);
+            this.btnSaveEmailSettings.TabIndex = 12;
+            this.btnSaveEmailSettings.UseVisualStyleBackColor = false;
+            this.btnSaveEmailSettings.Click += new System.EventHandler(this.btnSaveEmailSettings_Click);
+            // 
+            // pbBanner
+            // 
+            this.pbBanner.Location = new System.Drawing.Point(12, 155);
+            this.pbBanner.Name = "pbBanner";
+            this.pbBanner.Size = new System.Drawing.Size(288, 111);
+            this.pbBanner.TabIndex = 13;
+            this.pbBanner.TabStop = false;
+            // 
+            // lblBannerLink
+            // 
+            this.lblBannerLink.AutoSize = true;
+            this.lblBannerLink.Location = new System.Drawing.Point(9, 283);
+            this.lblBannerLink.Name = "lblBannerLink";
+            this.lblBannerLink.Size = new System.Drawing.Size(96, 13);
+            this.lblBannerLink.TabIndex = 14;
+            this.lblBannerLink.Text = "Advertisement link:";
+            // 
+            // tbAdLink
+            // 
+            this.tbAdLink.Location = new System.Drawing.Point(12, 311);
+            this.tbAdLink.Multiline = true;
+            this.tbAdLink.Name = "tbAdLink";
+            this.tbAdLink.Size = new System.Drawing.Size(288, 25);
+            this.tbAdLink.TabIndex = 26;
+            // 
+            // tbBannerDirectory
+            // 
+            this.tbBannerDirectory.Location = new System.Drawing.Point(12, 86);
+            this.tbBannerDirectory.Multiline = true;
+            this.tbBannerDirectory.Name = "tbBannerDirectory";
+            this.tbBannerDirectory.Size = new System.Drawing.Size(288, 35);
+            this.tbBannerDirectory.TabIndex = 27;
+            // 
             // EmailSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,9 +436,9 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

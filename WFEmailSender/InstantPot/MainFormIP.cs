@@ -133,8 +133,8 @@ namespace WFEmailSender.InstantPot
                 btnBrowseSourceFolder.Enabled = false;
 
                 XDocument doc = XDocument.Load(xmlPath);
-                var dirQ = from x in doc.Root.Descendants("DefaultDir")
-                           where (string)x.Attribute("id") == "2f386cf4-633b-4674-88be-d5782bf7445d"
+                var dirQ = from x in doc.Root.Descendants("DefaultDirIP")
+                           where (string)x.Attribute("id") == "c696fe9c-95c0-44b2-a1a1-c586499e5187"
                            select x.Element("Directory").Value;
 
                 defSourceDir = dirQ.FirstOrDefault();
@@ -237,8 +237,8 @@ namespace WFEmailSender.InstantPot
                 btnBrowseDestFolder.Enabled = false;
 
                 XDocument doc = XDocument.Load(xmlPath);
-                var dirQ = from x in doc.Root.Descendants("DefaultDir")
-                           where (string)x.Attribute("id") == "ce832671-f6a8-46fa-ae08-ff3be59fef8f"
+                var dirQ = from x in doc.Root.Descendants("DefaultDirIP")
+                           where (string)x.Attribute("id") == "35476b9b-dd2d-4c40-941d-b83136d32708"
                            select x.Element("Directory").Value;
 
                 defDestDir = dirQ.FirstOrDefault();
@@ -340,16 +340,16 @@ namespace WFEmailSender.InstantPot
                 tbAlias.Enabled = false;
 
                 XDocument doc = XDocument.Load(xmlPath);
-                var emailQ = from x in doc.Root.Descendants("DefaultCredentials")
-                             where (string)x.Attribute("id") == "43e02680-4651-4ea5-a37c-c87b5761a6d6"
+                var emailQ = from x in doc.Root.Descendants("DefaultCredentialsIP")
+                             where (string)x.Attribute("id") == "a3e9f4b4-eff6-47ae-ac6e-bfaf814668bc"
                              select x.Element("Email").Value;
 
-                var passQ = from x in doc.Root.Descendants("DefaultCredentials")
-                            where (string)x.Attribute("id") == "43e02680-4651-4ea5-a37c-c87b5761a6d6"
+                var passQ = from x in doc.Root.Descendants("DefaultCredentialsIP")
+                            where (string)x.Attribute("id") == "a3e9f4b4-eff6-47ae-ac6e-bfaf814668bc"
                             select x.Element("PasswordEncoded").Value;
 
-                var aliasQ = from x in doc.Root.Descendants("DefaultCredentials")
-                             where (string)x.Attribute("id") == "43e02680-4651-4ea5-a37c-c87b5761a6d6"
+                var aliasQ = from x in doc.Root.Descendants("DefaultCredentialsIP")
+                             where (string)x.Attribute("id") == "a3e9f4b4-eff6-47ae-ac6e-bfaf814668bc"
                              select x.Element("Alias").Value;
 
                 defEmail = emailQ.FirstOrDefault();
@@ -449,7 +449,7 @@ namespace WFEmailSender.InstantPot
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SettingsForm form = new SettingsForm();
+            SettingsFormIP form = new SettingsFormIP();
             form.Show();
         }
 
@@ -662,7 +662,8 @@ namespace WFEmailSender.InstantPot
             {
                 MainForm mForm = new MainForm();
                 this.Hide();
-                mForm.Show();
+                mForm.ShowDialog();
+                this.Close();
             }
         }
         #endregion

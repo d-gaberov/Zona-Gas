@@ -1,39 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Data>
   <InvoiceEmailMessage id="a75faaf2-1897-4490-a2d1-0345d78893a7">
-    <Subject>фхсдг</Subject>
-    <Body>фхсд</Body>
+    <Subject></Subject>
+    <Body></Body>
     <Waybill></Waybill>
-    <Footer>asdsssdgsdg</Footer>
+    <Footer></Footer>
   </InvoiceEmailMessage>
   <CertificateEmailMessage id="c600e731-ade6-46b7-8989-d2055cc74909">
-    <Subject>хсдг</Subject>
-    <Body>фхсдг</Body>
+    <Subject></Subject>
+    <Body></Body>
     <Waybill></Waybill>
-    <Footer>
-sdhg
-
-
-sfdhg</Footer>
+    <Footer></Footer>
   </CertificateEmailMessage>
   <ReportEmailMessage id="9b4f85ef-c267-42be-a03b-5ffc8b67c0a0">
-    <Subject>sfhsfhdg</Subject>
-    <Body>shdgsdhg
-
-sfdgh
-
-dfhrg
-
-sdfhg
-sfhd</Body>
+    <Subject></Subject>
+    <Body></Body>
     <Waybill></Waybill>
-    <Footer>sdfhgsfhdg</Footer>
+    <Footer></Footer>
   </ReportEmailMessage>
   <DefaultCredentials id="43e02680-4651-4ea5-a37c-c87b5761a6d6">
-    <Email>dimityr.gaberov@gmail.com</Email>
-    <PasswordEncoded>Mjg0NjUxMjU5</PasswordEncoded>
-    <Alias>Pesho</Alias>
+    <Email>test</Email>
+    <PasswordEncoded>MTIzNDU=</PasswordEncoded>
+    <Alias>test2</Alias>
   </DefaultCredentials>
+  <DefaultCredentialsIP id="a3e9f4b4-eff6-47ae-ac6e-bfaf814668bc">
+    <Email>aedfhraERF</Email>
+    <PasswordEncoded>MTIzNDU2Nzg=</PasswordEncoded>
+    <Alias>adfhsdfhg</Alias>
+  </DefaultCredentialsIP>
   <DefaultDir id="2f386cf4-633b-4674-88be-d5782bf7445d">
     <Type>Source</Type>
     <Directory>C:\Users\PC-Admin\Desktop\New folder</Directory>
@@ -42,18 +36,29 @@ sfhd</Body>
     <Type>Destination</Type>
     <Directory>C:\Users\PC-Admin\Desktop\New folder</Directory>
   </DefaultDir>
+  <DefaultDirIP id="c696fe9c-95c0-44b2-a1a1-c586499e5187">
+    <Type>Source</Type>
+    <Directory>C:\Users\PC-Admin\Desktop</Directory>
+  </DefaultDirIP>
+  <DefaultDirIP id="35476b9b-dd2d-4c40-941d-b83136d32708">
+    <Type>Destination</Type>
+    <Directory>C:\Users\PC-Admin\Desktop</Directory>
+  </DefaultDirIP>
   <BannerInfo id="375ac8d3-3fe9-4031-b0d4-118125764793">
-    <Directory>C:\Users\PC-Admin\Desktop\WFEmailSender\Resources\banner1.jpg</Directory>
-    <Link>google.com</Link>
+    <Directory></Directory>
+    <Link></Link>
   </BannerInfo>
   <DefaultFilesFormat id="868b49e0-b64a-40c7-9965-12fc0db7e2fe">
-    <Format>rtf</Format>
+    <Format>docx</Format>
   </DefaultFilesFormat>
+  <DefaultFilesFormatIP id="22be157c-78be-4c59-8cfe-121c464df22c">
+    <Format>docx</Format>
+  </DefaultFilesFormatIP>
   <EmailSettings id="742ea7be-7593-44a3-b554-ca339296510a">
-    <SmtpServer>pirin.superhosting.bg</SmtpServer>
-    <Port>25</Port>
+    <SmtpServer>smtp.gmail.com</SmtpServer>
+    <Port>465</Port>
     <IsBodyHtml>true</IsBodyHtml>
     <UseDefaultCredentials>false</UseDefaultCredentials>
-    <EnableSsl>false</EnableSsl>
+    <EnableSsl>true</EnableSsl>
   </EmailSettings>
 </Data>

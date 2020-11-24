@@ -43,24 +43,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WFEmailSender.exe" size="248816">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WFEmailSender.exe" size="272368">
       <assemblyIdentity name="WFEmailSender" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>d737rDfVXpR2oVyjf2P/uXRrwe9IGzxmG8ZRjLtTW2o=</dsig:DigestValue>
+        <dsig:DigestValue>fDjj4HnuVt50x5W6/6bG3+KzC0xG9iG8v9M7LPfyCBU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Data\Settings.xml" size="1567" writeableType="applicationData">
+  <file name="Data\Settings.xml" size="2134" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>bIZS87C0lYm8c7hEQDh7j2Pk23W2O1ceVyWRUf5rndE=</dsig:DigestValue>
+      <dsig:DigestValue>jqSe7AWsbqXaUcVN0PcZJYRnjiiViuEchHV2LzsxY70=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Data\SignatureTemplate.html" size="1546">
@@ -204,7 +204,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>gSJj5GpIqfJFoqGmrK1qS73+KSi37mJ+vhnVV5kgwp4=</dsig:DigestValue>
+      <dsig:DigestValue>zrizqQiz6tXqY5+X3ZqfbO6WbhlmaUsrAO4C7qKsgEg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="WFdb_log.ldf" size="8388608" writeableType="applicationData">
@@ -213,7 +213,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>shDIYhDhjlTtSvMh2zfsp9KeNubss7PmWqnVkMEXalY=</dsig:DigestValue>
+      <dsig:DigestValue>t2bdKX93bZoEZGH7KaCKV5pvLaS4MxE1jPns3g8h8BU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="WFEmailSender.exe.config" size="548">

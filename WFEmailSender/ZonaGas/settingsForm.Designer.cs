@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.lblDefEmail = new System.Windows.Forms.Label();
             this.lblDefPW = new System.Windows.Forms.Label();
             this.lblEmailAndPwDescr = new System.Windows.Forms.Label();
@@ -41,7 +42,7 @@
             this.tbDefDestDir = new System.Windows.Forms.TextBox();
             this.lblDefDestDir = new System.Windows.Forms.Label();
             this.fbdDefDestDir = new System.Windows.Forms.FolderBrowserDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.cbDocx = new System.Windows.Forms.CheckBox();
             this.cbRtf = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@
             // lblDefEmail
             // 
             this.lblDefEmail.AutoSize = true;
-            this.lblDefEmail.Location = new System.Drawing.Point(39, 57);
+            this.lblDefEmail.Location = new System.Drawing.Point(26, 49);
             this.lblDefEmail.Name = "lblDefEmail";
             this.lblDefEmail.Size = new System.Drawing.Size(32, 13);
             this.lblDefEmail.TabIndex = 0;
@@ -61,7 +62,7 @@
             // lblDefPW
             // 
             this.lblDefPW.AutoSize = true;
-            this.lblDefPW.Location = new System.Drawing.Point(39, 87);
+            this.lblDefPW.Location = new System.Drawing.Point(26, 79);
             this.lblDefPW.Name = "lblDefPW";
             this.lblDefPW.Size = new System.Drawing.Size(53, 13);
             this.lblDefPW.TabIndex = 1;
@@ -70,7 +71,7 @@
             // lblEmailAndPwDescr
             // 
             this.lblEmailAndPwDescr.AutoSize = true;
-            this.lblEmailAndPwDescr.Location = new System.Drawing.Point(39, 29);
+            this.lblEmailAndPwDescr.Location = new System.Drawing.Point(26, 21);
             this.lblEmailAndPwDescr.Name = "lblEmailAndPwDescr";
             this.lblEmailAndPwDescr.Size = new System.Drawing.Size(140, 13);
             this.lblEmailAndPwDescr.TabIndex = 2;
@@ -78,14 +79,14 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(103, 54);
+            this.tbEmail.Location = new System.Drawing.Point(90, 46);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(188, 20);
             this.tbEmail.TabIndex = 3;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(103, 80);
+            this.tbPassword.Location = new System.Drawing.Point(90, 72);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(188, 20);
@@ -94,7 +95,7 @@
             // lblDefSourceDir
             // 
             this.lblDefSourceDir.AutoSize = true;
-            this.lblDefSourceDir.Location = new System.Drawing.Point(39, 154);
+            this.lblDefSourceDir.Location = new System.Drawing.Point(26, 146);
             this.lblDefSourceDir.Name = "lblDefSourceDir";
             this.lblDefSourceDir.Size = new System.Drawing.Size(122, 13);
             this.lblDefSourceDir.TabIndex = 5;
@@ -102,7 +103,7 @@
             // 
             // tbDefSourceDir
             // 
-            this.tbDefSourceDir.Location = new System.Drawing.Point(42, 170);
+            this.tbDefSourceDir.Location = new System.Drawing.Point(29, 162);
             this.tbDefSourceDir.Name = "tbDefSourceDir";
             this.tbDefSourceDir.ReadOnly = true;
             this.tbDefSourceDir.Size = new System.Drawing.Size(277, 20);
@@ -110,7 +111,10 @@
             // 
             // btnDefSourceDir
             // 
-            this.btnDefSourceDir.Location = new System.Drawing.Point(325, 168);
+            this.btnDefSourceDir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDefSourceDir.BackgroundImage")));
+            this.btnDefSourceDir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDefSourceDir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDefSourceDir.Location = new System.Drawing.Point(312, 160);
             this.btnDefSourceDir.Name = "btnDefSourceDir";
             this.btnDefSourceDir.Size = new System.Drawing.Size(75, 23);
             this.btnDefSourceDir.TabIndex = 7;
@@ -120,7 +124,10 @@
             // 
             // btnDefDestDir
             // 
-            this.btnDefDestDir.Location = new System.Drawing.Point(325, 223);
+            this.btnDefDestDir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDefDestDir.BackgroundImage")));
+            this.btnDefDestDir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDefDestDir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDefDestDir.Location = new System.Drawing.Point(312, 215);
             this.btnDefDestDir.Name = "btnDefDestDir";
             this.btnDefDestDir.Size = new System.Drawing.Size(75, 23);
             this.btnDefDestDir.TabIndex = 10;
@@ -130,7 +137,7 @@
             // 
             // tbDefDestDir
             // 
-            this.tbDefDestDir.Location = new System.Drawing.Point(42, 225);
+            this.tbDefDestDir.Location = new System.Drawing.Point(29, 217);
             this.tbDefDestDir.Name = "tbDefDestDir";
             this.tbDefDestDir.ReadOnly = true;
             this.tbDefDestDir.Size = new System.Drawing.Size(277, 20);
@@ -139,29 +146,30 @@
             // lblDefDestDir
             // 
             this.lblDefDestDir.AutoSize = true;
-            this.lblDefDestDir.Location = new System.Drawing.Point(39, 209);
+            this.lblDefDestDir.Location = new System.Drawing.Point(26, 201);
             this.lblDefDestDir.Name = "lblDefDestDir";
             this.lblDefDestDir.Size = new System.Drawing.Size(141, 13);
             this.lblDefDestDir.TabIndex = 8;
             this.lblDefDestDir.Text = "Default destination directory:";
             // 
-            // button1
+            // btnSave
             // 
-            this.button1.BackColor = System.Drawing.Color.Green;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(404, 260);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSave.BackColor = System.Drawing.Color.Green;
+            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSave.Location = new System.Drawing.Point(366, 255);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(113, 28);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cbDocx
             // 
             this.cbDocx.AutoSize = true;
             this.cbDocx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbDocx.Location = new System.Drawing.Point(344, 57);
+            this.cbDocx.Location = new System.Drawing.Point(331, 49);
             this.cbDocx.Name = "cbDocx";
             this.cbDocx.Size = new System.Drawing.Size(49, 17);
             this.cbDocx.TabIndex = 12;
@@ -173,7 +181,7 @@
             // 
             this.cbRtf.AutoSize = true;
             this.cbRtf.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbRtf.Location = new System.Drawing.Point(346, 83);
+            this.cbRtf.Location = new System.Drawing.Point(333, 75);
             this.cbRtf.Name = "cbRtf";
             this.cbRtf.Size = new System.Drawing.Size(47, 17);
             this.cbRtf.TabIndex = 13;
@@ -184,7 +192,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(322, 29);
+            this.label1.Location = new System.Drawing.Point(309, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 14;
@@ -192,7 +200,7 @@
             // 
             // tbAlias
             // 
-            this.tbAlias.Location = new System.Drawing.Point(103, 106);
+            this.tbAlias.Location = new System.Drawing.Point(90, 98);
             this.tbAlias.Name = "tbAlias";
             this.tbAlias.Size = new System.Drawing.Size(188, 20);
             this.tbAlias.TabIndex = 16;
@@ -200,7 +208,7 @@
             // lblAlias
             // 
             this.lblAlias.AutoSize = true;
-            this.lblAlias.Location = new System.Drawing.Point(39, 113);
+            this.lblAlias.Location = new System.Drawing.Point(26, 105);
             this.lblAlias.Name = "lblAlias";
             this.lblAlias.Size = new System.Drawing.Size(29, 13);
             this.lblAlias.TabIndex = 15;
@@ -216,7 +224,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbRtf);
             this.Controls.Add(this.cbDocx);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDefDestDir);
             this.Controls.Add(this.tbDefDestDir);
             this.Controls.Add(this.lblDefDestDir);
@@ -255,7 +263,7 @@
         private System.Windows.Forms.TextBox tbDefDestDir;
         private System.Windows.Forms.Label lblDefDestDir;
         private System.Windows.Forms.FolderBrowserDialog fbdDefDestDir;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.CheckBox cbDocx;
         private System.Windows.Forms.CheckBox cbRtf;
         private System.Windows.Forms.Label label1;

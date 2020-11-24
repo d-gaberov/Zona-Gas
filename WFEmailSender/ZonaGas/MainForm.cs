@@ -658,7 +658,8 @@ namespace WFEmailSender
             {
                 MainFormIP ipForm = new MainFormIP();
                 this.Hide();
-                ipForm.Show();
+                ipForm.ShowDialog();
+                this.Close();
             }
         }
         #endregion

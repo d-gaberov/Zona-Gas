@@ -23,6 +23,11 @@
     <PasswordEncoded></PasswordEncoded>
     <Alias></Alias>
   </DefaultCredentials>
+  <DefaultCredentialsIP id="a3e9f4b4-eff6-47ae-ac6e-bfaf814668bc">
+    <Email></Email>
+    <PasswordEncoded></PasswordEncoded>
+    <Alias></Alias>
+  </DefaultCredentialsIP>
   <DefaultDir id="2f386cf4-633b-4674-88be-d5782bf7445d">
     <Type>Source</Type>
     <Directory></Directory>
@@ -31,6 +36,14 @@
     <Type>Destination</Type>
     <Directory></Directory>
   </DefaultDir>
+  <DefaultDirIP id="c696fe9c-95c0-44b2-a1a1-c586499e5187">
+    <Type>Source</Type>
+    <Directory></Directory>
+  </DefaultDirIP>
+  <DefaultDirIP id="35476b9b-dd2d-4c40-941d-b83136d32708">
+    <Type>Destination</Type>
+    <Directory></Directory>
+  </DefaultDirIP>
   <BannerInfo id="375ac8d3-3fe9-4031-b0d4-118125764793">
     <Directory></Directory>
     <Link></Link>
@@ -38,6 +51,9 @@
   <DefaultFilesFormat id="868b49e0-b64a-40c7-9965-12fc0db7e2fe">
     <Format></Format>
   </DefaultFilesFormat>
+  <DefaultFilesFormatIP id="22be157c-78be-4c59-8cfe-121c464df22c">
+    <Format></Format>
+  </DefaultFilesFormatIP>
   <EmailSettings id="742ea7be-7593-44a3-b554-ca339296510a">
     <SmtpServer>smtp.gmail.com</SmtpServer>
     <Port>465</Port>

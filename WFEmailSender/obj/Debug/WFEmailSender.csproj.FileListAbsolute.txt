@@ -59,7 +59,6 @@ D:\Work\ZonaGas\WFEmailSender\bin\Debug\WFEmailSender.exe.manifest
 D:\Work\ZonaGas\WFEmailSender\bin\Debug\WFEmailSender.application
 D:\Work\ZonaGas\WFEmailSender\bin\Debug\WFEmailSender.exe
 D:\Work\ZonaGas\WFEmailSender\bin\Debug\WFEmailSender.pdb
-D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.csprojAssemblyReference.cache
 D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.InstantPot.MainFormIP.resources
 D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.EmailSettingsForm.resources
 D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.InfoForm.resources
@@ -71,3 +70,4 @@ D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.exe.manifest
 D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.application
 D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.exe
 D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.pdb
+D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.InstantPot.SettingsFormIP.resources
