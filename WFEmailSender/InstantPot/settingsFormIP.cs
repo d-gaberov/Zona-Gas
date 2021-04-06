@@ -52,7 +52,11 @@ namespace WFEmailSender.InstantPot
             saveDefaultFilesFormat(doc);
 
             // Restart the application after saving settings so they can take effect
-            Application.Restart();
+            //Application.Restart();
+            MainFormIP mForm = new MainFormIP();
+            this.Hide();
+            mForm.ShowDialog();
+            this.Close();
 
         }
 

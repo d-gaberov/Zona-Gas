@@ -43,17 +43,44 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WFEmailSender.exe" size="272368">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WFEmailSender.exe" size="273392">
       <assemblyIdentity name="WFEmailSender" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>oKgiusxH/mqGFaECkLFO4TPt1lO5oVY6iOkb3Ot1QhQ=</dsig:DigestValue>
+        <dsig:DigestValue>wd87GfMI/6za9VOyAhJmdzE8thVuPpiACwI1JY0r4mY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="Data\instantPotAccessoariesTemplate.html" size="14945">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>lcmv/+Er2Q+8l/u0a8Nb5BQOWxMX7h9hSAGi++V7vdk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Data\InstantPotTBILisingTemplate.html" size="24941">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qQpzzIls/P5FNgVuU7CxCd1QsJ/8WXWrza2cKzqPQPE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Data\InstantPotTrackingTemplate.html" size="24908">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>lpwcOirQ+Y87AFzFDoLTi4RbdMgtOtf+Z1C5o5phJdU=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Data\Settings.xml" size="2134" writeableType="applicationData">
     <hash>
       <dsig:Transforms>

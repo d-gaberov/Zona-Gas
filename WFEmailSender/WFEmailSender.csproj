@@ -52,10 +52,10 @@
     <ApplicationIcon>ZonaGas\logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>5572F2D4927B588FF9D93DBD9C0436BC411B8CEA</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>8C21DAFB494E38C4D44DAFD3D787E8197B8FA933</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>WFEmailSender_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>WFEmailSender_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DocumentPropertiesIP.cs" />
     <Compile Include="DocumentProperties.cs" />
     <Compile Include="InstantPot\MainFormIP.cs">
       <SubType>Form</SubType>
@@ -178,6 +179,7 @@
     <None Include="WFdbDataSet.xss">
       <DependentUpon>WFdbDataSet.xsd</DependentUpon>
     </None>
+    <None Include="WFEmailSender_1_TemporaryKey.pfx" />
     <None Include="WFEmailSender_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +187,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Data\instantPotAccessoariesTemplate.html" />
+    <Content Include="Data\InstantPotTBILisingTemplate.html" />
+    <Content Include="Data\InstantPotTrackingTemplate.html" />
     <Content Include="Data\Settings.xml" />
     <Content Include="Data\SignatureTemplate.html" />
     <Content Include="Resources\btnGrayBackground.jpg" />

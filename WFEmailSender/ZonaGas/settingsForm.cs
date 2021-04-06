@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using WFEmailSender.InstantPot;
 
 namespace WFEmailSender
 {
@@ -132,7 +133,11 @@ namespace WFEmailSender
             saveDefaultFilesFormat(doc);
 
             // Restart the application after saving settings so they can take effect
-            Application.Restart(); 
+            //Application.Restart();
+            MainForm mForm = new MainForm();
+            this.Hide();
+            mForm.ShowDialog();
+            this.Close();
 
             #region Old logic with db
             /*

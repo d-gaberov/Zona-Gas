@@ -26,7 +26,7 @@ namespace WFEmailSender.InstantPot
         public string msgNoEmail = "Please enter email!";
         public string msgNoPassword = "Please enter password!";
         public string msgSendCompleted = "Email sending completed!";
-        public string msgWrongDocType = "Property subject must contain one of the following types: Invoice, Фактура, Certificate, Сертификат, Report, Справка. File {0} will not be sent!";
+        public string msgWrongDocType = "Property subject must contain one of the following types: Invoice, Фактура, Bill of Goods, Стокова Разписка. File {0} will not be sent!";
         public string msgSourceDirDeleted = "Previously selected source directory is deleted! Could not load files!";
         public string msgDestDirDeleted = "Previously selected destination directory is deleted! Could not load files!";
         public string msgNoAlias = "Alias is empty! If you click ok, the email recipients will see the actual email sender!";
@@ -34,10 +34,12 @@ namespace WFEmailSender.InstantPot
 
         // helper variables
         public List<string> docFileNames = new List<string>();
-        private List<DocumentProperties> allDocumentsProperties = new List<DocumentProperties>();
+        private List<DocumentPropertiesIP> allDocumentsProperties = new List<DocumentPropertiesIP>();
 
         public string xmlPath = "Data/Settings.xml";
-        public string signatureTemplatePath = "Data/SignatureTemplate.html";
+        public string accessoariesTemplatePath = "Data/instantPotAccessoariesTemplate.html";
+        public string tbiTemplatePath = "Data/InstantPotTBILisingTemplate.html";
+        public string instantPotTemplatePath = "Data/InstantPotTrackingTemplate.html";
 
         public string defSourceDir = "";
         public string defDestDir = "";
@@ -47,26 +49,15 @@ namespace WFEmailSender.InstantPot
 
         public string sourceFilesFormat = "";
 
-        // email strings
-        public string bannerDir = "";
-        public string bannerLink = "";
+        // html locations
+        string accessoariesTrackingDiv = "accessoariesTrackingDiv";
+        string accessoariesTrackingNumber = "accessoariesTrackingNumber";
 
-        public string invoiceSubject = "";
-        public string invoiceBody = "";
-        public string invoiceWaybill = "";
-        public string invoiceFooter = "";
+        string tbiTrackingDiv = "tbiTrackingDiv";
+        string tbiTrackingNumber = "tbiTrackingNumber";
 
-        public string certificateSubject = "";
-        public string certificateBody = "";
-        public string certificateWaybill = "";
-        public string certificateFooter = "";
-
-        public string reportSubject = "";
-        public string reportBody = "";
-        public string reportWaybill = "";
-        public string reportFooter = "";
-
-        public string signatureHtml = "";
+        string instantPotTrackingDiv = "instantPotTrackingDiv";
+        string instantPotTrackingNumber = "instantPotTrackingNumber";
 
         // email settings
         public string smtpServer = "";
@@ -540,14 +531,7 @@ namespace WFEmailSender.InstantPot
             progressBar1.PerformStep();
             progressBar1.Refresh();
 
-            // get email subjects, bodies, waybills and footers from the database:
-            //lblStatus.Text = "Collecting document properties...";
-            getBannerStrings();
-            getInvoiceEmailStrings();
-            getCertificateEmailStrings();
-            getReportEmailStrings();
             getEmailSettings();
-            getSignatureHtml();
 
             progressBar1.PerformStep();
             progressBar1.Refresh();
@@ -566,30 +550,19 @@ namespace WFEmailSender.InstantPot
                         for (var j = 0; j < emails.Length; j++)
                         {
                             var emailTo = emails[j].Trim();
-                            sendEmails(allDocumentsProperties[i], emailTo, invoiceSubject, invoiceBody, invoiceWaybill, invoiceFooter, bannerDir, bannerLink);
+                            sendEmails(allDocumentsProperties[i], emailTo);
                             progressBar1.PerformStep();
                             progressBar1.Refresh();
                         }
 
                     }
-                    else if (allDocumentsProperties[i].DocumentType.ToUpper() == "CERTIFICATE" || allDocumentsProperties[i].DocumentType.ToUpper() == "СЕРТИФИКАТ")
+                    else if (allDocumentsProperties[i].DocumentType.ToUpper() == "BILL OF GOODS" || allDocumentsProperties[i].DocumentType.ToUpper() == "СТОКОВА РАЗПИСКА")
                     {
                         var emails = allDocumentsProperties[i].Emails.Split(';');
                         for (var k = 0; k < emails.Length; k++)
                         {
                             var emailTo = emails[k].Trim();
-                            sendEmails(allDocumentsProperties[i], emailTo, certificateSubject, certificateBody, certificateWaybill, certificateFooter, bannerDir, bannerLink);
-                            progressBar1.PerformStep();
-                            progressBar1.Refresh();
-                        }
-                    }
-                    else if (allDocumentsProperties[i].DocumentType.ToUpper() == "REPORT" || allDocumentsProperties[i].DocumentType.ToUpper() == "СПРАВКА")
-                    {
-                        var emails = allDocumentsProperties[i].Emails.Split(';');
-                        for (var l = 0; l < emails.Length; l++)
-                        {
-                            var emailTo = emails[l].Trim();
-                            sendEmails(allDocumentsProperties[i], emailTo, reportSubject, reportBody, reportWaybill, reportFooter, bannerDir, bannerLink);
+                            sendEmails(allDocumentsProperties[i], emailTo);
                             progressBar1.PerformStep();
                             progressBar1.Refresh();
                         }
@@ -697,10 +670,17 @@ namespace WFEmailSender.InstantPot
             object missing = System.Reflection.Missing.Value;
             object falseVal = false;
 
-            var files = Directory.GetFiles(tbSourceDir.Text, sourceFilesFormat);
-            foreach (string file in files)
+            try
             {
-                docFileNames.Add(Path.GetFileName(file));
+                var files = Directory.GetFiles(tbSourceDir.Text, sourceFilesFormat);
+                foreach (string file in files)
+                {
+                    docFileNames.Add(Path.GetFileName(file));
+                }
+            }
+            catch (Exception err)
+            {
+                lblStatus.Text = err.Message;
             }
 
             Application app = new Application();
@@ -773,15 +753,17 @@ namespace WFEmailSender.InstantPot
         }
 
         ////////////////////////////////////////////////////// get doc properties //////////////////////////////////////////////////////
-        private DocumentProperties getProperties(Document doc)
+        private DocumentPropertiesIP getProperties(Document doc)
         {
             object _BuiltInProperties = doc.BuiltInDocumentProperties;
             Type typeDocBuiltInProps = _BuiltInProperties.GetType();
 
             string docNo;
-            string docType;
             string emails;
-            string waybill;
+            string billOfLading;
+            string docType;
+            string templateType;
+            string orderNo;
 
             try
             {
@@ -793,6 +775,30 @@ namespace WFEmailSender.InstantPot
             catch (Exception err)
             {
                 docNo = "";
+            }
+
+            try
+            {
+                // Emails prop
+                Object EmailsProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Tags" });
+                Type typeEmailsProp = EmailsProp.GetType();
+                emails = typeEmailsProp.InvokeMember("Value", BindingFlags.Default | BindingFlags.GetProperty, null, EmailsProp, new object[] { }).ToString();
+            }
+            catch (Exception err)
+            {
+                emails = "";
+            }
+
+            try
+            {
+                // billOfLading prop
+                Object billOfLadingProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Comments" });
+                Type typeBillOfLadingProp = billOfLadingProp.GetType();
+                billOfLading = typeBillOfLadingProp.InvokeMember("Value", BindingFlags.Default | BindingFlags.GetProperty, null, billOfLadingProp, new object[] { }).ToString();
+            }
+            catch (Exception err)
+            {
+                billOfLading = "";
             }
 
             try
@@ -809,29 +815,29 @@ namespace WFEmailSender.InstantPot
 
             try
             {
-                // Emails prop
-                Object EmailsProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Keywords" });
-                Type typeEmailsProp = EmailsProp.GetType();
-                emails = typeEmailsProp.InvokeMember("Value", BindingFlags.Default | BindingFlags.GetProperty, null, EmailsProp, new object[] { }).ToString();
+                // templateType prop
+                Object templateTypeProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Categories" });
+                Type typeTemplateTypeProp = templateTypeProp.GetType();
+                templateType = typeTemplateTypeProp.InvokeMember("Value", BindingFlags.Default | BindingFlags.GetProperty, null, templateTypeProp, new object[] { }).ToString();
             }
             catch (Exception err)
             {
-                emails = "";
+                templateType = "";
             }
 
             try
             {
-                // Waybill prop
-                Object WaybillProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Comments" });
-                Type typeWaybillProp = WaybillProp.GetType();
-                waybill = typeWaybillProp.InvokeMember("Value", BindingFlags.Default | BindingFlags.GetProperty, null, WaybillProp, new object[] { }).ToString();
+                // orderNo prop
+                Object orderNoProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Status" });
+                Type typeTemplateTypeProp = orderNoProp.GetType();
+                orderNo = typeTemplateTypeProp.InvokeMember("Value", BindingFlags.Default | BindingFlags.GetProperty, null, orderNoProp, new object[] { }).ToString();
             }
             catch (Exception err)
             {
-                waybill = "";
+                orderNo = "";
             }
 
-            DocumentProperties properties = new DocumentProperties(docNo, docType, emails, waybill);
+            DocumentPropertiesIP properties = new DocumentPropertiesIP(docNo, emails, billOfLading, docType, templateType, orderNo);
             return properties;
         }
 
@@ -874,207 +880,6 @@ namespace WFEmailSender.InstantPot
             }
         }
 
-        ////////////////////////////////////////////////////// get banner strings /////////////////////////////////////////////////////
-        public void getBannerStrings()
-        {
-            XDocument doc = XDocument.Load(xmlPath);
-            var directoryQ = from x in doc.Root.Descendants("BannerInfo")
-                             where (string)x.Attribute("id") == "375ac8d3-3fe9-4031-b0d4-118125764793"
-                             select x.Element("Directory").Value;
-
-            var linkQ = from x in doc.Root.Descendants("BannerInfo")
-                        where (string)x.Attribute("id") == "375ac8d3-3fe9-4031-b0d4-118125764793"
-                        select x.Element("Link").Value;
-
-            bannerDir = directoryQ.FirstOrDefault();
-            bannerLink = linkQ.FirstOrDefault();
-
-            #region Old logic with db
-            /*
-            string connectionString = getConnectionString();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                // banner
-                string bannerSelect = "SELECT * FROM [Banner]";
-                SqlCommand bannerCommand = new SqlCommand(bannerSelect, connection);
-                SqlDataReader bannerReader = bannerCommand.ExecuteReader();
-
-                if (bannerReader.HasRows)
-                {
-                    while (bannerReader.Read())
-                    {
-                        bannerDir = bannerReader["Directory"].ToString();
-                        bannerLink = bannerReader["Link"].ToString();
-                    }
-                }
-
-                bannerReader.Close();
-                connection.Close();
-            }
-            */
-            #endregion
-        }
-
-        ////////////////////////////////////////////////////// get invoice email strings //////////////////////////////////////////////
-        public void getInvoiceEmailStrings()
-        {
-            XDocument doc = XDocument.Load(xmlPath);
-            var subjectQ = from x in doc.Root.Descendants("InvoiceEmailMessage")
-                           where (string)x.Attribute("id") == "a75faaf2-1897-4490-a2d1-0345d78893a7"
-                           select x.Element("Subject").Value;
-
-            var bodyQ = from x in doc.Root.Descendants("InvoiceEmailMessage")
-                        where (string)x.Attribute("id") == "a75faaf2-1897-4490-a2d1-0345d78893a7"
-                        select x.Element("Body").Value;
-
-            var waybillQ = from x in doc.Root.Descendants("InvoiceEmailMessage")
-                           where (string)x.Attribute("id") == "a75faaf2-1897-4490-a2d1-0345d78893a7"
-                           select x.Element("Waybill").Value;
-
-            var footerQ = from x in doc.Root.Descendants("InvoiceEmailMessage")
-                          where (string)x.Attribute("id") == "a75faaf2-1897-4490-a2d1-0345d78893a7"
-                          select x.Element("Footer").Value;
-
-            invoiceSubject = subjectQ.FirstOrDefault().Replace("\n", Environment.NewLine);
-            invoiceBody = bodyQ.FirstOrDefault().Replace("\n", Environment.NewLine);
-            invoiceWaybill = waybillQ.FirstOrDefault().Replace("\n", Environment.NewLine);
-            invoiceFooter = footerQ.FirstOrDefault().Replace("\n", Environment.NewLine);
-
-            #region Old logic with db
-            /*
-            string connectionString = getConnectionString();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string invoiceSelect = "SELECT * FROM [InvoiceEmailMessage]";
-                SqlCommand invoiceCommand = new SqlCommand(invoiceSelect, connection);
-                SqlDataReader invoiceReader = invoiceCommand.ExecuteReader();
-                if (invoiceReader.HasRows)
-                {
-                    while (invoiceReader.Read())
-                    {
-                        invoiceSubject = invoiceReader["Subject"].ToString();
-                        invoiceBody = invoiceReader["Message"].ToString();
-                        invoiceWaybill = invoiceReader["Waybill"].ToString();
-                        invoiceFooter = invoiceReader["Footer"].ToString();
-                    }
-                }
-
-                invoiceReader.Close();
-                connection.Close();
-            }
-            */
-            #endregion
-        }
-
-        ////////////////////////////////////////////////////// get certificate email strings //////////////////////////////////////////
-        public void getCertificateEmailStrings()
-        {
-            XDocument doc = XDocument.Load(xmlPath);
-            var subjectQ = from x in doc.Root.Descendants("CertificateEmailMessage")
-                           where (string)x.Attribute("id") == "c600e731-ade6-46b7-8989-d2055cc74909"
-                           select x.Element("Subject").Value;
-
-            var bodyQ = from x in doc.Root.Descendants("CertificateEmailMessage")
-                        where (string)x.Attribute("id") == "c600e731-ade6-46b7-8989-d2055cc74909"
-                        select x.Element("Body").Value;
-
-            var waybillQ = from x in doc.Root.Descendants("CertificateEmailMessage")
-                           where (string)x.Attribute("id") == "c600e731-ade6-46b7-8989-d2055cc74909"
-                           select x.Element("Waybill").Value;
-
-            var footerQ = from x in doc.Root.Descendants("CertificateEmailMessage")
-                          where (string)x.Attribute("id") == "c600e731-ade6-46b7-8989-d2055cc74909"
-                          select x.Element("Footer").Value;
-
-            certificateSubject = subjectQ.FirstOrDefault().Replace("\n", Environment.NewLine);
-            certificateBody = bodyQ.FirstOrDefault().Replace("\n", Environment.NewLine);
-            certificateWaybill = waybillQ.FirstOrDefault().Replace("\n", Environment.NewLine);
-            certificateFooter = footerQ.FirstOrDefault().Replace("\n", Environment.NewLine);
-
-            #region Old logic with db
-            /*
-            string connectionString = getConnectionString();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string certificateSelect = "SELECT * FROM [CertificateEmailMessage]";
-                SqlCommand certificateCommand = new SqlCommand(certificateSelect, connection);
-                SqlDataReader certificateReader = certificateCommand.ExecuteReader();
-                if (certificateReader.HasRows)
-                {
-                    while (certificateReader.Read())
-                    {
-                        certificateSubject = certificateReader["Subject"].ToString();
-                        certificateBody = certificateReader["Message"].ToString();
-                        certificateWaybill = certificateReader["Waybill"].ToString();
-                        certificateFooter = certificateReader["Footer"].ToString();
-                    }
-                }
-
-                certificateReader.Close();
-                connection.Close();
-            }
-            */
-            #endregion
-        }
-
-        public void getReportEmailStrings()
-        {
-            XDocument doc = XDocument.Load(xmlPath);
-            var subjectQ = from x in doc.Root.Descendants("ReportEmailMessage")
-                           where (string)x.Attribute("id") == "9b4f85ef-c267-42be-a03b-5ffc8b67c0a0"
-                           select x.Element("Subject").Value;
-
-            var bodyQ = from x in doc.Root.Descendants("ReportEmailMessage")
-                        where (string)x.Attribute("id") == "9b4f85ef-c267-42be-a03b-5ffc8b67c0a0"
-                        select x.Element("Body").Value;
-
-            var waybillQ = from x in doc.Root.Descendants("ReportEmailMessage")
-                           where (string)x.Attribute("id") == "9b4f85ef-c267-42be-a03b-5ffc8b67c0a0"
-                           select x.Element("Waybill").Value;
-
-            var footerQ = from x in doc.Root.Descendants("ReportEmailMessage")
-                          where (string)x.Attribute("id") == "9b4f85ef-c267-42be-a03b-5ffc8b67c0a0"
-                          select x.Element("Footer").Value;
-
-            reportSubject = subjectQ.FirstOrDefault().Replace("\n", Environment.NewLine);
-            reportBody = bodyQ.FirstOrDefault().Replace("\n", Environment.NewLine);
-            reportWaybill = waybillQ.FirstOrDefault().Replace("\n", Environment.NewLine);
-            reportFooter = footerQ.FirstOrDefault().Replace("\n", Environment.NewLine);
-
-            #region Old logic with db
-            /*
-            string connectionString = getConnectionString();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string certificateSelect = "SELECT * FROM [CertificateEmailMessage]";
-                SqlCommand certificateCommand = new SqlCommand(certificateSelect, connection);
-                SqlDataReader certificateReader = certificateCommand.ExecuteReader();
-                if (certificateReader.HasRows)
-                {
-                    while (certificateReader.Read())
-                    {
-                        certificateSubject = certificateReader["Subject"].ToString();
-                        certificateBody = certificateReader["Message"].ToString();
-                        certificateWaybill = certificateReader["Waybill"].ToString();
-                        certificateFooter = certificateReader["Footer"].ToString();
-                    }
-                }
-
-                certificateReader.Close();
-                connection.Close();
-            }
-            */
-            #endregion
-        }
-
         public void getEmailSettings()
         {
             XDocument doc = XDocument.Load(xmlPath);
@@ -1106,18 +911,12 @@ namespace WFEmailSender.InstantPot
             enableSsl = (enableSslQ.FirstOrDefault() == "true" ? true : false);
         }
 
-        public void getSignatureHtml()
-        {
-            string signHtml = File.ReadAllText(signatureTemplatePath);
-            signatureHtml = signHtml;
-        }
-
         public void getSourceFilesFormat()
         {
             XDocument doc = XDocument.Load(xmlPath);
 
-            var formatQ = from x in doc.Root.Descendants("DefaultFilesFormat")
-                          where (string)x.Attribute("id") == "868b49e0-b64a-40c7-9965-12fc0db7e2fe"
+            var formatQ = from x in doc.Root.Descendants("DefaultFilesFormatIP")
+                          where (string)x.Attribute("id") == "22be157c-78be-4c59-8cfe-121c464df22c"
                           select x.Element("Format").Value;
 
             if (formatQ.FirstOrDefault() == "rtf")
@@ -1131,7 +930,7 @@ namespace WFEmailSender.InstantPot
         }
 
         ////////////////////////////////////////////////////// send emails ////////////////////////////////////////////////////////////
-        private void sendEmails(DocumentProperties properties, string emailTo, string subject, string body, string waybill, string footer, string bannerDir, string bannerLink)
+        private void sendEmails(DocumentPropertiesIP properties, string emailTo)
         {
             try
             {
@@ -1143,90 +942,13 @@ namespace WFEmailSender.InstantPot
                 mail.From = new MailAddress(userEmail, userAlias);
 
                 mail.To.Add(emailTo);
-                mail.Subject = subject + " " + properties.DocumentNo;
+                //mail.Subject = subject + " " + properties.DocumentNo;
 
-                string emailBody = "<html>";
-                emailBody += "<body'>";
-                var parsedBody = body.Replace(Environment.NewLine, "<br>");
-                emailBody += "<label>" + parsedBody + "</label><br>";
+                string emailBody = "";
 
-                if (properties.Waybill.Length > 0 && Regex.IsMatch(properties.Waybill, @"^\d+$"))
-                {
-                    emailBody += "<label>Пратката си може да проследите на <a href='https://speedy.bg/bg/track-shipment?shipmentNumber'>този линк</a><label> с номер на товарителница: " + properties.Waybill + "</label></label><br><br>";
-                }
+                //get the right html and edit it accordingly
+                //string signHtml = File.ReadAllText(signatureTemplatePath);
 
-                var parsedFooter = footer.Replace(Environment.NewLine, "<br>");
-                emailBody += "<label>" + parsedFooter + "</label>";
-
-                /*
-                // signature
-                emailBody += @"<div style='width:25em; font-size: 1em;'>
-		                                    <br>
-		                                    <br>
-		                                    <label>Поздрави,</label>
-		                                    <br>
-		                                    <br>
-		                                    <label style='font-weight: bold;'>Екипът на Зона Газ</label>
-		                                    <br><hr>
-		                                    <label>тел:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+359 (2) 955 53 84</label><br>
-		                                    <label>моб:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+359 878 67 60 36</label><br>
-		                                    <label>моб:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+359 878 66 09 25</label><br>
-		                                    <label>адрес:&nbsp;&nbsp;&nbsp;&nbsp;София, бул. Братя Бъкстон №40</label><br>
-		                                    <label>web:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://www.zonagas.bg/'>www.ZonaGas.bg</a></label><br>
-		                                    <label>web:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://madas.bg/'>www.Madas.bg</a></label><br>
-		                                    <label>e-mail:&nbsp;&nbsp;&nbsp;<a href='https://mail.google.com/mail/u/1/#inbox/FMfcgxwGCHCfTBQjRjGVhPtmDdLqwDvd?compose=new'>office@zonagas.bg</a></label><br>
-		                                    <img src='cid:zonaGasImgId' width='282' height='69'/>
-		                                    <div style='margin-top: -0.5em;'>
-			                                    <a href='https://www.facebook.com/ZonaGas.bg/'><img src='cid:fbImgId'/></a>&nbsp;
-			                                    <a href='https://www.youtube.com/channel/UCEvb_Dpsg6gVBHTIIAvtVew'><img src='cid:ytImgId'/></a>&nbsp;
-			                                    <a href='https://plus.google.com/+ZonaGasBgOnline'><img src='cid:gpImgId'/></a>&nbsp;
-			                                    <a href='https://facebook.us14.list-manage.com/subscribe?u=f70ba3c71f72b9eb69cc7a460&id=0df4c4dbce'><img src='cid:nlImgId'/></a>&nbsp;
-		                                    </div>
-                                        </div>";
-                                        */
-
-                emailBody += signatureHtml;
-
-                if (bannerDir.Length > 0 && bannerLink.Length > 0)
-                {
-                    emailBody += String.Format("<a href='{0}'><img src='cid:bannerImgId'/></a>&nbsp;", bannerLink);
-                }
-
-                //emailBody += "</div>";
-                emailBody += "</body>";
-                emailBody += "</html>";
-
-
-                // av html body
-                AlternateView av = AlternateView.CreateAlternateViewFromString(emailBody, null, MediaTypeNames.Text.Html);
-                // av pics
-                LinkedResource zonaGasPic = new LinkedResource("Resources/zonaGasImg.jpg", MediaTypeNames.Image.Jpeg);
-                LinkedResource fbPic = new LinkedResource("Resources/facebookPic.jpg", MediaTypeNames.Image.Jpeg);
-                LinkedResource ytPic = new LinkedResource("Resources/youtubePic.jpg", MediaTypeNames.Image.Jpeg);
-                LinkedResource gpPic = new LinkedResource("Resources/googlePlusPic.jpg", MediaTypeNames.Image.Jpeg);
-                LinkedResource nlPic = new LinkedResource("Resources/newsLetterPic.jpg", MediaTypeNames.Image.Jpeg);
-
-                zonaGasPic.ContentId = "zonaGasImgId";
-                fbPic.ContentId = "fbImgId";
-                ytPic.ContentId = "ytImgId";
-                gpPic.ContentId = "gpImgId";
-                nlPic.ContentId = "nlImgId";
-
-                av.LinkedResources.Add(zonaGasPic);
-                av.LinkedResources.Add(fbPic);
-                av.LinkedResources.Add(ytPic);
-                av.LinkedResources.Add(gpPic);
-                av.LinkedResources.Add(nlPic);
-
-                // add advertisement banner if configured
-                if (bannerDir.Length > 0 && bannerLink.Length > 0)
-                {
-                    LinkedResource banner = new LinkedResource(bannerDir, MediaTypeNames.Image.Jpeg);
-                    banner.ContentId = "bannerImgId";
-                    av.LinkedResources.Add(banner);
-                }
-
-                mail.AlternateViews.Add(av);
                 mail.Body = emailBody;
                 mail.IsBodyHtml = isBodyHtml;
 

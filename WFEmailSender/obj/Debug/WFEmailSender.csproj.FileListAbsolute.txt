@@ -71,5 +71,5 @@ D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.application
 D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.exe
 D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.pdb
 D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.InstantPot.SettingsFormIP.resources
-D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.csprojAssemblyReference.cache
 D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.csproj.CoreCompileInputs.cache
+D:\Work\ZonaGas\WFEmailSender\obj\Debug\WFEmailSender.csprojAssemblyReference.cache

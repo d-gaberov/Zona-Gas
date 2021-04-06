@@ -32,11 +32,19 @@ namespace WFEmailSender
 
         The app also needs Microsoft Office Word installed on the machine to convert docx files to pdf. It is used as a background process.
 
-        The app reads the following properties from the docx files:
-        - Title : This property will be used for the document number.
-        - Subject : This property will be used for the document type e.g. Invoice or Certificate.
-        - Tags : This property will be used for the email(s) where the doc needs to be sent. The emails can be more than one separated by ';' !
-        - Comments (optional) : This property will be used for the waybill number. If this property is empty or the text inside is not composed only from numbers, the email send will not have waybill tracking text.
+        The app reads the following properties from the docx/rtf files:
+            ZonaGas documents:
+                - Title : This property will be used for the document number.
+                - Subject : This property will be used for the document type e.g. Invoice or Certificate.
+                - Tags : This property will be used for the email(s) where the doc needs to be sent. The emails can be more than one separated by ';' !
+                - Comments (optional) : This property will be used for the waybill number. If this property is empty or the text inside is not composed only from numbers, the email send will not have waybill tracking text.
+            InstantPot Documents:
+                - Title : This property will be used for the document number.
+                - Tags : This property will be used for the email(s) where the doc needs to be sent. The emails can be more than one separated by ';' !
+                - Comments : This property will be used for the bill of lading number.
+                - Subject : This property will be used for the document type e.g. Invoice or Certificate.
+                - Categories : This property will be used to identofy which html template will be sent as email e.g. InstantPot or Accessory.
+                - Status : This property will be used for the order number.
 
         There are three main screens in the app: Main view, Email settings view and General settings view.
 

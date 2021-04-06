@@ -693,11 +693,18 @@ namespace WFEmailSender
             object missing = System.Reflection.Missing.Value;
             object falseVal = false;
 
-            var files = Directory.GetFiles(tbSourceDir.Text, sourceFilesFormat);
-            foreach (string file in files)
+            try
             {
-                docFileNames.Add(Path.GetFileName(file));
+                var files = Directory.GetFiles(tbSourceDir.Text, sourceFilesFormat);
+                foreach (string file in files)
+                {
+                    docFileNames.Add(Path.GetFileName(file));
+                }
+            } catch (Exception err)
+            {
+                lblStatus.Text = err.Message;
             }
+
 
             Application app = new Application();
 
