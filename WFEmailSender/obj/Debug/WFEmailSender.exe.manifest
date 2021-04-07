@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WFEmailSender.exe" size="273392">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WFEmailSender.exe" size="274928">
       <assemblyIdentity name="WFEmailSender" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wd87GfMI/6za9VOyAhJmdzE8thVuPpiACwI1JY0r4mY=</dsig:DigestValue>
+        <dsig:DigestValue>BTsBDBRzKIPWIiZQN+v4q+u6mM4d7HMbDL2Uu7/dB5o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

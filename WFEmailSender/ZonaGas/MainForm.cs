@@ -31,6 +31,7 @@ namespace WFEmailSender
         public string msgDestDirDeleted = "Previously selected destination directory is deleted! Could not load files!";
         public string msgNoAlias = "Alias is empty! If you click ok, the email recipients will see the actual email sender!";
         public string msgSwitchToInstantPot = "Switch to Instant Pot?";
+        public string msgEmptyEmail = "Property Tags must contain atleast one email. File {0} will not be sent!";
 
         // helper variables
         public List<string> docFileNames = new List<string>();
@@ -562,10 +563,19 @@ namespace WFEmailSender
                         var emails = allDocumentsProperties[i].Emails.Split(';');
                         for(var j = 0; j < emails.Length; j++)
                         {
-                            var emailTo = emails[j].Trim();
-                            sendEmails(allDocumentsProperties[i], emailTo, invoiceSubject, invoiceBody, invoiceWaybill, invoiceFooter, bannerDir, bannerLink);
-                            progressBar1.PerformStep();
-                            progressBar1.Refresh();
+                            if(emails[i] != "")
+                            {
+                                var emailTo = emails[j].Trim();
+                                sendEmails(allDocumentsProperties[i], emailTo, invoiceSubject, invoiceBody, invoiceWaybill, invoiceFooter, bannerDir, bannerLink);
+                                progressBar1.PerformStep();
+                                progressBar1.Refresh();
+                            }
+                            else
+                            {
+                                msgEmptyEmail = String.Format(msgEmptyEmail, allDocumentsProperties[i].DocFileDir);
+                                wrongSubjectTypeFilesList.Add(msgEmptyEmail);
+                            }
+
                         }
                         
                     }
@@ -574,10 +584,18 @@ namespace WFEmailSender
                         var emails = allDocumentsProperties[i].Emails.Split(';');
                         for (var k = 0; k < emails.Length; k++)
                         {
-                            var emailTo = emails[k].Trim();
-                            sendEmails(allDocumentsProperties[i], emailTo, certificateSubject, certificateBody, certificateWaybill, certificateFooter, bannerDir, bannerLink);
-                            progressBar1.PerformStep();
-                            progressBar1.Refresh();
+                            if (emails[i] != "")
+                            {
+                                var emailTo = emails[k].Trim();
+                                sendEmails(allDocumentsProperties[i], emailTo, certificateSubject, certificateBody, certificateWaybill, certificateFooter, bannerDir, bannerLink);
+                                progressBar1.PerformStep();
+                                progressBar1.Refresh();
+                            } 
+                            else
+                            {
+                                msgEmptyEmail = String.Format(msgEmptyEmail, allDocumentsProperties[i].DocFileDir);
+                                wrongSubjectTypeFilesList.Add(msgEmptyEmail);
+                            }
                         }
                     }
                     else if (allDocumentsProperties[i].DocumentType.ToUpper() == "REPORT" || allDocumentsProperties[i].DocumentType.ToUpper() == "СПРАВКА")
@@ -585,10 +603,18 @@ namespace WFEmailSender
                         var emails = allDocumentsProperties[i].Emails.Split(';');
                         for (var l = 0; l < emails.Length; l++)
                         {
-                            var emailTo = emails[l].Trim();
-                            sendEmails(allDocumentsProperties[i], emailTo, reportSubject, reportBody, reportWaybill, reportFooter, bannerDir, bannerLink);
-                            progressBar1.PerformStep();
-                            progressBar1.Refresh();
+                            if (emails[i] != "")
+                            {
+                                var emailTo = emails[l].Trim();
+                                sendEmails(allDocumentsProperties[i], emailTo, reportSubject, reportBody, reportWaybill, reportFooter, bannerDir, bannerLink);
+                                progressBar1.PerformStep();
+                                progressBar1.Refresh();
+                            } 
+                            else
+                            {
+                                msgEmptyEmail = String.Format(msgEmptyEmail, allDocumentsProperties[i].DocFileDir);
+                                wrongSubjectTypeFilesList.Add(msgEmptyEmail);
+                            }
                         }
                     }
                     else

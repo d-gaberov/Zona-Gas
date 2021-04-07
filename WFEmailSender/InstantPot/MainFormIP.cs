@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Linq;
+using System.Diagnostics;
 
 namespace WFEmailSender.InstantPot
 {
@@ -31,6 +32,7 @@ namespace WFEmailSender.InstantPot
         public string msgDestDirDeleted = "Previously selected destination directory is deleted! Could not load files!";
         public string msgNoAlias = "Alias is empty! If you click ok, the email recipients will see the actual email sender!";
         public string msgSwitchToZonaGas = "Switch to Zona Gas?";
+        public string msgEmptyEmail = "Property Tags must contain atleast one email. File {0} will not be sent!";
 
         // helper variables
         public List<string> docFileNames = new List<string>();
@@ -41,6 +43,10 @@ namespace WFEmailSender.InstantPot
         public string tbiTemplatePath = "Data/InstantPotTBILisingTemplate.html";
         public string instantPotTemplatePath = "Data/InstantPotTrackingTemplate.html";
 
+        public string logPath = "Data/log.txt";
+
+        public string mainSubject = "Проследяване на поръчка";
+
         public string defSourceDir = "";
         public string defDestDir = "";
         public string defEmail = "";
@@ -50,13 +56,13 @@ namespace WFEmailSender.InstantPot
         public string sourceFilesFormat = "";
 
         // html locations
-        string accessoariesTrackingDiv = "accessoariesTrackingDiv";
+        string accessoariesTrackingDiv = "id='accessoariesTrackingDiv'";
         string accessoariesTrackingNumber = "accessoariesTrackingNumber";
 
-        string tbiTrackingDiv = "tbiTrackingDiv";
+        string tbiTrackingDiv = "id='tbiTrackingDiv'";
         string tbiTrackingNumber = "tbiTrackingNumber";
 
-        string instantPotTrackingDiv = "instantPotTrackingDiv";
+        string instantPotTrackingDiv = "id='instantPotTrackingDiv'";
         string instantPotTrackingNumber = "instantPotTrackingNumber";
 
         // email settings
@@ -549,10 +555,19 @@ namespace WFEmailSender.InstantPot
                         var emails = allDocumentsProperties[i].Emails.Split(';');
                         for (var j = 0; j < emails.Length; j++)
                         {
-                            var emailTo = emails[j].Trim();
-                            sendEmails(allDocumentsProperties[i], emailTo);
-                            progressBar1.PerformStep();
-                            progressBar1.Refresh();
+                            if(emails[i] != "")
+                            {
+                                var emailTo = emails[j].Trim();
+                                sendEmails(allDocumentsProperties[i], emailTo);
+                                progressBar1.PerformStep();
+                                progressBar1.Refresh();
+                            } 
+                            else
+                            {
+                                msgEmptyEmail = String.Format(msgEmptyEmail, allDocumentsProperties[i].DocFileDir);
+                                wrongSubjectTypeFilesList.Add(msgEmptyEmail);
+                            }
+
                         }
 
                     }
@@ -561,10 +576,19 @@ namespace WFEmailSender.InstantPot
                         var emails = allDocumentsProperties[i].Emails.Split(';');
                         for (var k = 0; k < emails.Length; k++)
                         {
-                            var emailTo = emails[k].Trim();
-                            sendEmails(allDocumentsProperties[i], emailTo);
-                            progressBar1.PerformStep();
-                            progressBar1.Refresh();
+                            if(emails[i] != "")
+                            {
+                                var emailTo = emails[k].Trim();
+                                sendEmails(allDocumentsProperties[i], emailTo);
+                                progressBar1.PerformStep();
+                                progressBar1.Refresh();
+                            } 
+                            else
+                            {
+                                msgEmptyEmail = String.Format(msgEmptyEmail, allDocumentsProperties[i].DocFileDir);
+                                wrongSubjectTypeFilesList.Add(msgEmptyEmail);
+                            }
+
                         }
                     }
                     else
@@ -704,7 +728,7 @@ namespace WFEmailSender.InstantPot
                     // get document properties
                     var properties = getProperties(doc);
 
-                    var pdfDestinationName = properties.DocumentNo + " - " + properties.DocumentType + " - " + "ZonaGas.pdf";
+                    var pdfDestinationName = properties.DocumentNo + " - " + properties.DocumentType + " - " + "InstantPot.pdf";
                     var pdfDestinationPath = tbDestDir.Text + "\\" + pdfDestinationName;
 
                     properties.DocFileDir = pdfDestinationPath;
@@ -779,18 +803,6 @@ namespace WFEmailSender.InstantPot
 
             try
             {
-                // Emails prop
-                Object EmailsProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Tags" });
-                Type typeEmailsProp = EmailsProp.GetType();
-                emails = typeEmailsProp.InvokeMember("Value", BindingFlags.Default | BindingFlags.GetProperty, null, EmailsProp, new object[] { }).ToString();
-            }
-            catch (Exception err)
-            {
-                emails = "";
-            }
-
-            try
-            {
                 // billOfLading prop
                 Object billOfLadingProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Comments" });
                 Type typeBillOfLadingProp = billOfLadingProp.GetType();
@@ -816,7 +828,7 @@ namespace WFEmailSender.InstantPot
             try
             {
                 // templateType prop
-                Object templateTypeProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Categories" });
+                Object templateTypeProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Category" });
                 Type typeTemplateTypeProp = templateTypeProp.GetType();
                 templateType = typeTemplateTypeProp.InvokeMember("Value", BindingFlags.Default | BindingFlags.GetProperty, null, templateTypeProp, new object[] { }).ToString();
             }
@@ -828,13 +840,25 @@ namespace WFEmailSender.InstantPot
             try
             {
                 // orderNo prop
-                Object orderNoProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Status" });
+                Object orderNoProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Company" });
                 Type typeTemplateTypeProp = orderNoProp.GetType();
                 orderNo = typeTemplateTypeProp.InvokeMember("Value", BindingFlags.Default | BindingFlags.GetProperty, null, orderNoProp, new object[] { }).ToString();
             }
             catch (Exception err)
             {
                 orderNo = "";
+            }
+
+            try
+            {
+                // Emails prop
+                Object EmailsProp = typeDocBuiltInProps.InvokeMember("Item", BindingFlags.Default | BindingFlags.GetProperty, null, _BuiltInProperties, new object[] { "Keywords" });
+                Type typeEmailsProp = EmailsProp.GetType();
+                emails = typeEmailsProp.InvokeMember("Value", BindingFlags.Default | BindingFlags.GetProperty, null, EmailsProp, new object[] { }).ToString();
+            }
+            catch (Exception err)
+            {
+                emails = "";
             }
 
             DocumentPropertiesIP properties = new DocumentPropertiesIP(docNo, emails, billOfLading, docType, templateType, orderNo);
@@ -929,6 +953,60 @@ namespace WFEmailSender.InstantPot
             }
         }
 
+        private string getBodyHtml(DocumentPropertiesIP properties)
+        {
+            string body = "";
+            switch (properties.TemplateType)
+            {
+                case "InstantPot":
+                    body = File.ReadAllText(instantPotTemplatePath);
+
+                    if (properties.BillOfLading != null && properties.BillOfLading != "" && double.TryParse(properties.BillOfLading, out double res) == true)
+                    {
+                        body = body.Replace(instantPotTrackingNumber, properties.BillOfLading);
+                        return body;
+                    } else
+                    {
+                        body = body.Replace(instantPotTrackingDiv, "hidden=\"true\"");
+                        body = body.Replace(instantPotTrackingNumber, "");
+                        return body;
+                    }
+
+                case "Accessory":
+                    body = File.ReadAllText(accessoariesTemplatePath);
+
+                    if (properties.BillOfLading != null && properties.BillOfLading != "" && double.TryParse(properties.BillOfLading, out double res2) == true)
+                    {
+                        body = body.Replace(accessoariesTrackingNumber, properties.BillOfLading);
+                        return body;
+                    }
+                    else
+                    {
+                        body = body.Replace(accessoariesTrackingDiv, "hidden=\"true\"");
+                        body = body.Replace(accessoariesTrackingNumber, "");
+                        return body;
+                    }
+
+                case "TBI":
+                    body = File.ReadAllText(tbiTemplatePath);
+
+                    if (properties.BillOfLading != null && properties.BillOfLading != "" && double.TryParse(properties.BillOfLading, out double res3) == true)
+                    {
+                        body = body.Replace(tbiTrackingNumber, properties.BillOfLading);
+                        return body;
+                    }
+                    else
+                    {
+                        body = body.Replace(tbiTrackingDiv, "hidden=\"true\"");
+                        body = body.Replace(tbiTrackingNumber, "");
+                        return body;
+                    }
+
+                default:
+                    return body;
+            }
+        }
+
         ////////////////////////////////////////////////////// send emails ////////////////////////////////////////////////////////////
         private void sendEmails(DocumentPropertiesIP properties, string emailTo)
         {
@@ -942,14 +1020,10 @@ namespace WFEmailSender.InstantPot
                 mail.From = new MailAddress(userEmail, userAlias);
 
                 mail.To.Add(emailTo);
-                //mail.Subject = subject + " " + properties.DocumentNo;
-
-                string emailBody = "";
+                mail.Subject = mainSubject + " " + properties.OrderNo;
 
                 //get the right html and edit it accordingly
-                //string signHtml = File.ReadAllText(signatureTemplatePath);
-
-                mail.Body = emailBody;
+                mail.Body = getBodyHtml(properties);
                 mail.IsBodyHtml = isBodyHtml;
 
                 Attachment attachment = new Attachment(properties.DocFileDir);
@@ -960,8 +1034,18 @@ namespace WFEmailSender.InstantPot
                 SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
                 SmtpServer.UseDefaultCredentials = useDefaultCredentials;
                 SmtpServer.Credentials = new System.Net.NetworkCredential(userEmail, userPw);
-
                 SmtpServer.Send(mail);
+
+                /*
+                using (StreamWriter writer = File.CreateText(logPath))
+                {
+                    writer.WriteLine("userMail: " + userEmail);
+                    writer.WriteLine("userAlias: " + userAlias);
+                    writer.WriteLine("emailTo: " + emailTo);
+                    writer.WriteLine("subject: " + mail.Subject);
+                    writer.WriteLine("body: " + mail.Body);
+                }
+                */
 
             }
             catch (Exception err)

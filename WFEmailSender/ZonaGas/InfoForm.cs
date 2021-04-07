@@ -41,9 +41,9 @@ namespace WFEmailSender
             InstantPot Documents:
                 - Title : This property will be used for the document number.
                 - Tags : This property will be used for the email(s) where the doc needs to be sent. The emails can be more than one separated by ';' !
-                - Comments : This property will be used for the bill of lading number.
-                - Subject : This property will be used for the document type e.g. Invoice or Certificate.
-                - Categories : This property will be used to identofy which html template will be sent as email e.g. InstantPot or Accessory.
+                - Comments : This property will be used for the bill of lading number.                         
+                - Subject : This property will be used for the document type e.g. Invoice or Bill of Goods.
+                - Categories : This property will be used to identofy which html template will be sent as email e.g. InstantPot, Accessory or TBI.
                 - Status : This property will be used for the order number.
 
         There are three main screens in the app: Main view, Email settings view and General settings view.
@@ -71,8 +71,12 @@ On the left is where the user configures the banner image and banner advertiseme
 
         Version 1.1.3:
             - Added the option to send the emails from a different Alias than the original email address. The alias can be any string and it is not required to have a common email pattern.
-            - Can be configured in the setting screen where the user configures default email and password. If the alias is left empty when the button save is clicked, the alias will be automatically saved as the original email address.";
+            - Can be configured in the setting screen where the user configures default email and password. If the alias is left empty when the button save is clicked, the alias will be automatically saved as the original email address.
         
+        Version 1.2.4:
+            - Minor bug fixes in ZonaGas part of the app.
+            - Improved UI.
+            - Added InstantPot functionality.";
 
             tbGuide.Text = guide;
         }

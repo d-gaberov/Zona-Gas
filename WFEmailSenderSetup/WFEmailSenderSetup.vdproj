@@ -75,7 +75,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_6A0A35E6960F41A3B52700528FCC0541"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6C9321D65F9B43E4A23AB86D7C901B0F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_831FFAFC9317496DBE2CCD1E3E6EAEF7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -105,7 +117,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9BE89C3154E5408B913234F8A1AB1656"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C3D7D241DF2E4E8392F9E4BB9E2094C8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CB5A14EFCF4444B985173FF4A646FB33"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -130,13 +154,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_08BA39703721560B996A9157B22FFE6F"
+        "OwnerKey" = "8:_FD7330CBD2B4412AB175AF3EF26D548B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FD7330CBD2B4412AB175AF3EF26D548B"
+        "OwnerKey" = "8:_08BA39703721560B996A9157B22FFE6F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -157,6 +181,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -173,6 +213,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -413,12 +461,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6A0A35E6960F41A3B52700528FCC0541"
+            {
+            "SourcePath" = "8:..\\WFEmailSender\\bin\\Debug\\Data\\InstantPotTBILisingTemplate.html"
+            "TargetName" = "8:InstantPotTBILisingTemplate.html"
+            "Tag" = "8:"
+            "Folder" = "8:_D2F84F1D9B6E440496010238716D05A4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6C9321D65F9B43E4A23AB86D7C901B0F"
             {
             "SourcePath" = "8:..\\WFEmailSender\\Resources\\youtubePic.jpg"
             "TargetName" = "8:youtubePic.jpg"
             "Tag" = "8:"
             "Folder" = "8:_9974BFB79A864D0E878FBE69B4A32C6E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_831FFAFC9317496DBE2CCD1E3E6EAEF7"
+            {
+            "SourcePath" = "8:..\\WFEmailSender\\bin\\Debug\\Data\\InstantPotTrackingTemplate.html"
+            "TargetName" = "8:InstantPotTrackingTemplate.html"
+            "Tag" = "8:"
+            "Folder" = "8:_D2F84F1D9B6E440496010238716D05A4"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -513,12 +601,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9BE89C3154E5408B913234F8A1AB1656"
+            {
+            "SourcePath" = "8:..\\WFEmailSender\\bin\\Debug\\Data\\log.txt"
+            "TargetName" = "8:log.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_D2F84F1D9B6E440496010238716D05A4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C3D7D241DF2E4E8392F9E4BB9E2094C8"
             {
             "SourcePath" = "8:..\\WFEmailSender\\Resources\\zonaGasBgColor.jpg"
             "TargetName" = "8:zonaGasBgColor.jpg"
             "Tag" = "8:"
             "Folder" = "8:_9974BFB79A864D0E878FBE69B4A32C6E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CB5A14EFCF4444B985173FF4A646FB33"
+            {
+            "SourcePath" = "8:..\\WFEmailSender\\bin\\Debug\\Data\\instantPotAccessoariesTemplate.html"
+            "TargetName" = "8:instantPotAccessoariesTemplate.html"
+            "Tag" = "8:"
+            "Folder" = "8:_D2F84F1D9B6E440496010238716D05A4"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -652,7 +780,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:WFEmailSenderSetup"
         "ProductCode" = "8:{29B22317-5999-4DCE-9213-A800CCDE23DE}"
-        "PackageCode" = "8:{67A810FE-E2DD-4625-A2DE-0C3112C86CDA}"
+        "PackageCode" = "8:{B4ABACC5-B776-4015-BA32-E95A2B9986E2}"
         "UpgradeCode" = "8:{65DCD04B-79F1-4026-B9EC-B3BA6C9D97E0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
