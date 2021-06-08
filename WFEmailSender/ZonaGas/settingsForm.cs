@@ -32,6 +32,7 @@ namespace WFEmailSender
             populateDefaultSourceDir(doc);
             populateDefaultDestDir(doc);
             populateDefaultFilesFormat(doc);
+            populateServerSettings(doc);
 
             #region Old logic with db
             /*
@@ -131,6 +132,7 @@ namespace WFEmailSender
             saveDefaultSourceDir(doc);
             saveDefaultDestDir(doc);
             saveDefaultFilesFormat(doc);
+            saveServerSettings(doc);
 
             // Restart the application after saving settings so they can take effect
             //Application.Restart();
@@ -233,6 +235,60 @@ namespace WFEmailSender
             var formatQ = doc.Descendants("DefaultFilesFormat").Single(x => x.Attribute("id").Value.Equals("868b49e0-b64a-40c7-9965-12fc0db7e2fe"));
             formatQ.SetElementValue("Format", format);
             doc.Save(path);
+        }
+
+        private void saveServerSettings(XDocument doc)
+        {
+            var smtp = tbSmtp.Text;
+            var port = tbPort.Text;
+            var isHtml = cbIsHtml.Checked;
+            var enableSsl = cbEnableSsl.Checked;
+
+            var tag = doc.Descendants("EmailSettings").Single(x => x.Attribute("id").Value.Equals("742ea7be-7593-44a3-b554-ca339296510a"));
+            tag.SetElementValue("SmtpServer", smtp);
+            tag.SetElementValue("Port", port);
+            tag.SetElementValue("IsBodyHtml", isHtml);
+            tag.SetElementValue("EnableSsl", enableSsl);
+            doc.Save(path);
+        }
+
+        private void populateServerSettings(XDocument doc)
+        {
+            var smtpQ = from x in doc.Root.Descendants("EmailSettings")
+                         where (string)x.Attribute("id") == "742ea7be-7593-44a3-b554-ca339296510a"
+                        select x.Element("SmtpServer").Value;
+
+            var portQ = from x in doc.Root.Descendants("EmailSettings")
+                        where (string)x.Attribute("id") == "742ea7be-7593-44a3-b554-ca339296510a"
+                        select x.Element("Port").Value;
+
+            var isHtmlQ = from x in doc.Root.Descendants("EmailSettings")
+                        where (string)x.Attribute("id") == "742ea7be-7593-44a3-b554-ca339296510a"
+                        select x.Element("IsBodyHtml").Value;
+
+            var enableSslQ = from x in doc.Root.Descendants("EmailSettings")
+                        where (string)x.Attribute("id") == "742ea7be-7593-44a3-b554-ca339296510a"
+                        select x.Element("EnableSsl").Value;
+
+            tbSmtp.Text = smtpQ.FirstOrDefault();
+            tbPort.Text = portQ.FirstOrDefault();
+
+            if(isHtmlQ.FirstOrDefault() == "true")
+            {
+                cbIsHtml.Checked = true;
+            } else
+            {
+                cbIsHtml.Checked = false;
+            }
+
+            if (enableSslQ.FirstOrDefault() == "true")
+            {
+                cbEnableSsl.Checked = true;
+            }
+            else
+            {
+                cbEnableSsl.Checked = false;
+            }
         }
 
         private void populateCredentials(XDocument doc)

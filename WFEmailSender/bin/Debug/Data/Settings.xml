@@ -19,9 +19,9 @@
     <Footer></Footer>
   </ReportEmailMessage>
   <DefaultCredentials id="43e02680-4651-4ea5-a37c-c87b5761a6d6">
-    <Email>test</Email>
-    <PasswordEncoded>MTIzNDU=</PasswordEncoded>
-    <Alias>test2</Alias>
+    <Email></Email>
+    <PasswordEncoded></PasswordEncoded>
+    <Alias></Alias>
   </DefaultCredentials>
   <DefaultCredentialsIP id="a3e9f4b4-eff6-47ae-ac6e-bfaf814668bc">
     <Email>dimityr.gaberov@gmail.com</Email>
@@ -30,11 +30,11 @@
   </DefaultCredentialsIP>
   <DefaultDir id="2f386cf4-633b-4674-88be-d5782bf7445d">
     <Type>Source</Type>
-    <Directory>C:\Users\PC-Admin\Desktop\New folder</Directory>
+    <Directory></Directory>
   </DefaultDir>
   <DefaultDir id="ce832671-f6a8-46fa-ae08-ff3be59fef8f">
     <Type>Destination</Type>
-    <Directory>C:\Users\PC-Admin\Desktop\New folder</Directory>
+    <Directory></Directory>
   </DefaultDir>
   <DefaultDirIP id="c696fe9c-95c0-44b2-a1a1-c586499e5187">
     <Type>Source</Type>
@@ -49,7 +49,7 @@
     <Link></Link>
   </BannerInfo>
   <DefaultFilesFormat id="868b49e0-b64a-40c7-9965-12fc0db7e2fe">
-    <Format>docx</Format>
+    <Format></Format>
   </DefaultFilesFormat>
   <DefaultFilesFormatIP id="22be157c-78be-4c59-8cfe-121c464df22c">
     <Format>rtf</Format>
@@ -61,4 +61,11 @@
     <UseDefaultCredentials>false</UseDefaultCredentials>
     <EnableSsl>true</EnableSsl>
   </EmailSettings>
+  <EmailSettingsIP id="153c197d-ef77-4b7d-94b8-ec3738e4661c">
+    <SmtpServer>smtp.gmail.com</SmtpServer>
+    <Port>587</Port>
+    <IsBodyHtml>true</IsBodyHtml>
+    <UseDefaultCredentials>false</UseDefaultCredentials>
+    <EnableSsl>true</EnableSsl>
+  </EmailSettingsIP>
 </Data>

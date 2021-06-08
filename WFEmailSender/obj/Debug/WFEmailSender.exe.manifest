@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WFEmailSender.exe" size="274928">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WFEmailSender.exe" size="281072">
       <assemblyIdentity name="WFEmailSender" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BTsBDBRzKIPWIiZQN+v4q+u6mM4d7HMbDL2Uu7/dB5o=</dsig:DigestValue>
+        <dsig:DigestValue>Kx7ttBjGSD5GtmhCVLKQkWJvWwkxM54C0rO9xQu78Qc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -81,13 +81,13 @@
       <dsig:DigestValue>lpwcOirQ+Y87AFzFDoLTi4RbdMgtOtf+Z1C5o5phJdU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Data\Settings.xml" size="2134" writeableType="applicationData">
+  <file name="Data\Settings.xml" size="2533" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>jqSe7AWsbqXaUcVN0PcZJYRnjiiViuEchHV2LzsxY70=</dsig:DigestValue>
+      <dsig:DigestValue>W1lOEbCQgeSHVBlq40Spomzcosb0f9k+3huvWDFRAtU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Data\SignatureTemplate.html" size="1546">

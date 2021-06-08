@@ -44,7 +44,7 @@ namespace WFEmailSender
                 - Comments : This property will be used for the bill of lading number.                         
                 - Subject : This property will be used for the document type e.g. Invoice or Bill of Goods.
                 - Categories : This property will be used to identofy which html template will be sent as email e.g. InstantPot, Accessory or TBI.
-                - Status : This property will be used for the order number.
+                - Company : This property will be used for the order number.
 
         There are three main screens in the app: Main view, Email settings view and General settings view.
 
@@ -76,7 +76,13 @@ On the left is where the user configures the banner image and banner advertiseme
         Version 1.2.4:
             - Minor bug fixes in ZonaGas part of the app.
             - Improved UI.
-            - Added InstantPot functionality.";
+            - Added InstantPot functionality.
+
+        Version 1.2.5:
+            - Bug fixes.
+            - Server settings can now be configured in the app.
+            - There are different server settings: One for ZonaGas, one for InstantPot.";
+
 
             tbGuide.Text = guide;
         }

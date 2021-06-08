@@ -414,7 +414,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 27;
-            this.label1.Text = "version 1.2.4";
+            this.label1.Text = "version 1.2.5";
             // 
             // tbAlias
             // 

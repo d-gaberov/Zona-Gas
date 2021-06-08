@@ -48,6 +48,13 @@
             this.lblDefEmail = new System.Windows.Forms.Label();
             this.fbdDefSourceDir = new System.Windows.Forms.FolderBrowserDialog();
             this.fbdDefDestDir = new System.Windows.Forms.FolderBrowserDialog();
+            this.cbEnableSsl = new System.Windows.Forms.CheckBox();
+            this.cbIsHtml = new System.Windows.Forms.CheckBox();
+            this.tbPort = new System.Windows.Forms.TextBox();
+            this.tbSmtp = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbAlias
@@ -105,7 +112,7 @@
             this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSave.Location = new System.Drawing.Point(364, 255);
+            this.btnSave.Location = new System.Drawing.Point(332, 400);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 28);
             this.btnSave.TabIndex = 28;
@@ -190,9 +197,10 @@
             // lblEmailAndPwDescr
             // 
             this.lblEmailAndPwDescr.AutoSize = true;
+            this.lblEmailAndPwDescr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmailAndPwDescr.Location = new System.Drawing.Point(25, 20);
             this.lblEmailAndPwDescr.Name = "lblEmailAndPwDescr";
-            this.lblEmailAndPwDescr.Size = new System.Drawing.Size(140, 13);
+            this.lblEmailAndPwDescr.Size = new System.Drawing.Size(167, 13);
             this.lblEmailAndPwDescr.TabIndex = 19;
             this.lblEmailAndPwDescr.Text = "Default email and password:";
             // 
@@ -214,11 +222,82 @@
             this.lblDefEmail.TabIndex = 17;
             this.lblDefEmail.Text = "Email";
             // 
+            // cbEnableSsl
+            // 
+            this.cbEnableSsl.AutoSize = true;
+            this.cbEnableSsl.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbEnableSsl.Location = new System.Drawing.Point(25, 400);
+            this.cbEnableSsl.Name = "cbEnableSsl";
+            this.cbEnableSsl.Size = new System.Drawing.Size(106, 17);
+            this.cbEnableSsl.TabIndex = 40;
+            this.cbEnableSsl.Text = "Enable Ssl          ";
+            this.cbEnableSsl.UseVisualStyleBackColor = true;
+            // 
+            // cbIsHtml
+            // 
+            this.cbIsHtml.AutoSize = true;
+            this.cbIsHtml.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.cbIsHtml.Location = new System.Drawing.Point(25, 377);
+            this.cbIsHtml.Name = "cbIsHtml";
+            this.cbIsHtml.Size = new System.Drawing.Size(106, 17);
+            this.cbIsHtml.TabIndex = 39;
+            this.cbIsHtml.Text = "Is Html                ";
+            this.cbIsHtml.UseVisualStyleBackColor = true;
+            // 
+            // tbPort
+            // 
+            this.tbPort.Location = new System.Drawing.Point(117, 345);
+            this.tbPort.Name = "tbPort";
+            this.tbPort.Size = new System.Drawing.Size(87, 20);
+            this.tbPort.TabIndex = 38;
+            // 
+            // tbSmtp
+            // 
+            this.tbSmtp.Location = new System.Drawing.Point(117, 319);
+            this.tbSmtp.Name = "tbSmtp";
+            this.tbSmtp.Size = new System.Drawing.Size(188, 20);
+            this.tbSmtp.TabIndex = 37;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 349);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Port";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 319);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 13);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Smtp Server";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(25, 283);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 13);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Server settings";
+            // 
             // SettingsFormIP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 295);
+            this.ClientSize = new System.Drawing.Size(490, 462);
+            this.Controls.Add(this.cbEnableSsl);
+            this.Controls.Add(this.cbIsHtml);
+            this.Controls.Add(this.tbPort);
+            this.Controls.Add(this.tbSmtp);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.tbAlias);
             this.Controls.Add(this.lblAlias);
             this.Controls.Add(this.label1);
@@ -269,5 +348,12 @@
         private System.Windows.Forms.Label lblDefEmail;
         private System.Windows.Forms.FolderBrowserDialog fbdDefSourceDir;
         private System.Windows.Forms.FolderBrowserDialog fbdDefDestDir;
+        private System.Windows.Forms.CheckBox cbEnableSsl;
+        private System.Windows.Forms.CheckBox cbIsHtml;
+        private System.Windows.Forms.TextBox tbPort;
+        private System.Windows.Forms.TextBox tbSmtp;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label2;
     }
 }

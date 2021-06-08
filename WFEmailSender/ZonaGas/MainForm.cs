@@ -563,7 +563,7 @@ namespace WFEmailSender
                         var emails = allDocumentsProperties[i].Emails.Split(';');
                         for(var j = 0; j < emails.Length; j++)
                         {
-                            if(emails[i] != "")
+                            if(emails[j] != "")
                             {
                                 var emailTo = emails[j].Trim();
                                 sendEmails(allDocumentsProperties[i], emailTo, invoiceSubject, invoiceBody, invoiceWaybill, invoiceFooter, bannerDir, bannerLink);
@@ -584,7 +584,7 @@ namespace WFEmailSender
                         var emails = allDocumentsProperties[i].Emails.Split(';');
                         for (var k = 0; k < emails.Length; k++)
                         {
-                            if (emails[i] != "")
+                            if (emails[k] != "")
                             {
                                 var emailTo = emails[k].Trim();
                                 sendEmails(allDocumentsProperties[i], emailTo, certificateSubject, certificateBody, certificateWaybill, certificateFooter, bannerDir, bannerLink);
