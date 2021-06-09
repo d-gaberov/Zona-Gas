@@ -908,24 +908,24 @@ namespace WFEmailSender.InstantPot
         {
             XDocument doc = XDocument.Load(xmlPath);
 
-            var smtpServerQ = from x in doc.Root.Descendants("EmailSettings")
-                              where (string)x.Attribute("id") == "742ea7be-7593-44a3-b554-ca339296510a"
+            var smtpServerQ = from x in doc.Root.Descendants("EmailSettingsIP")
+                              where (string)x.Attribute("id") == "153c197d-ef77-4b7d-94b8-ec3738e4661c"
                               select x.Element("SmtpServer").Value;
 
-            var portQ = from x in doc.Root.Descendants("EmailSettings")
-                        where (string)x.Attribute("id") == "742ea7be-7593-44a3-b554-ca339296510a"
+            var portQ = from x in doc.Root.Descendants("EmailSettingsIP")
+                        where (string)x.Attribute("id") == "153c197d-ef77-4b7d-94b8-ec3738e4661c"
                         select x.Element("Port").Value;
 
-            var isBodyHtmlQ = from x in doc.Root.Descendants("EmailSettings")
-                              where (string)x.Attribute("id") == "742ea7be-7593-44a3-b554-ca339296510a"
+            var isBodyHtmlQ = from x in doc.Root.Descendants("EmailSettingsIP")
+                              where (string)x.Attribute("id") == "153c197d-ef77-4b7d-94b8-ec3738e4661c"
                               select x.Element("IsBodyHtml").Value;
 
-            var useDefaultCredentialsQ = from x in doc.Root.Descendants("EmailSettings")
-                                         where (string)x.Attribute("id") == "742ea7be-7593-44a3-b554-ca339296510a"
+            var useDefaultCredentialsQ = from x in doc.Root.Descendants("EmailSettingsIP")
+                                         where (string)x.Attribute("id") == "153c197d-ef77-4b7d-94b8-ec3738e4661c"
                                          select x.Element("UseDefaultCredentials").Value;
 
-            var enableSslQ = from x in doc.Root.Descendants("EmailSettings")
-                             where (string)x.Attribute("id") == "742ea7be-7593-44a3-b554-ca339296510a"
+            var enableSslQ = from x in doc.Root.Descendants("EmailSettingsIP")
+                             where (string)x.Attribute("id") == "153c197d-ef77-4b7d-94b8-ec3738e4661c"
                              select x.Element("EnableSsl").Value;
 
             smtpServer = smtpServerQ.FirstOrDefault();
