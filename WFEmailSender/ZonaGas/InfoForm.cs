@@ -81,7 +81,12 @@ On the left is where the user configures the banner image and banner advertiseme
         Version 1.2.5:
             - Bug fixes.
             - Server settings can now be configured in the app.
-            - There are different server settings: One for ZonaGas, one for InstantPot.";
+            - There are different server settings: One for ZonaGas, one for InstantPot.
+
+        Version 1.2.6:
+            - InstantPotTBILisingTemplate renamed to 'AirFryerTrackingTemplate.html'. Renamed the string in 'Categories' tab from 'TBI' to 'AirFryer'. 
+            - Added new template 'AirPurifierTrackingTemplate.html' for Air Purifiers. The string in 'Categories' tab should be 'AirPurifier'.
+            - Added new template 'SparePartsTrackingTemplate.html' for Spare Parts. The string in 'Categories' tab should be 'SpareParts'. ";
 
 
             tbGuide.Text = guide;

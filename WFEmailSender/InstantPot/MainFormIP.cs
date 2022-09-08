@@ -34,14 +34,18 @@ namespace WFEmailSender.InstantPot
         public string msgSwitchToZonaGas = "Switch to Zona Gas?";
         public string msgEmptyEmail = "Property Tags must contain atleast one email. File {0} will not be sent!";
 
+        // html templates
+        public string accessoariesTemplatePath = "Data/instantPotAccessoariesTemplate.html";
+        public string instantPotTemplatePath = "Data/InstantPotTrackingTemplate.html";
+        public string airFryerTemplatePath = "Data/AirFryerTrackingTemplate.html";
+        public string airPurifierTemplatePath = "Data/AirPurifierTrackingTemplate.html";
+        public string sparePartsTemplatePath = "Data/SparePartsTrackingTemplate.html";
+
         // helper variables
         public List<string> docFileNames = new List<string>();
         private List<DocumentPropertiesIP> allDocumentsProperties = new List<DocumentPropertiesIP>();
 
         public string xmlPath = "Data/Settings.xml";
-        public string accessoariesTemplatePath = "Data/instantPotAccessoariesTemplate.html";
-        public string tbiTemplatePath = "Data/InstantPotTBILisingTemplate.html";
-        public string instantPotTemplatePath = "Data/InstantPotTrackingTemplate.html";
 
         public string logPath = "Data/log.txt";
 
@@ -546,7 +550,7 @@ namespace WFEmailSender.InstantPot
 
             var wrongSubjectTypeFilesList = new List<String>();
 
-            if (allDocumentsProperties.Count > 0)
+             if (allDocumentsProperties.Count > 0)
             {
                 for (int i = 0; i < allDocumentsProperties.Count; i++)
                 {
@@ -987,10 +991,40 @@ namespace WFEmailSender.InstantPot
                         return body;
                     }
 
-                case "TBI":
-                    body = File.ReadAllText(tbiTemplatePath);
+                case "AirFryer":
+                    body = File.ReadAllText(airFryerTemplatePath);
 
                     if (properties.BillOfLading != null && properties.BillOfLading != "" && double.TryParse(properties.BillOfLading, out double res3) == true)
+                    {
+                        body = body.Replace(tbiTrackingNumber, properties.BillOfLading);
+                        return body;
+                    }
+                    else
+                    {
+                        body = body.Replace(tbiTrackingDiv, "hidden=\"true\"");
+                        body = body.Replace(tbiTrackingNumber, "");
+                        return body;
+                    }
+
+                case "AirPurifier":
+                    body = File.ReadAllText(airPurifierTemplatePath);
+
+                    if (properties.BillOfLading != null && properties.BillOfLading != "" && double.TryParse(properties.BillOfLading, out double res4) == true)
+                    {
+                        body = body.Replace(tbiTrackingNumber, properties.BillOfLading);
+                        return body;
+                    }
+                    else
+                    {
+                        body = body.Replace(tbiTrackingDiv, "hidden=\"true\"");
+                        body = body.Replace(tbiTrackingNumber, "");
+                        return body;
+                    }
+
+                case "SpareParts":
+                    body = File.ReadAllText(sparePartsTemplatePath);
+
+                    if (properties.BillOfLading != null && properties.BillOfLading != "" && double.TryParse(properties.BillOfLading, out double res5) == true)
                     {
                         body = body.Replace(tbiTrackingNumber, properties.BillOfLading);
                         return body;
