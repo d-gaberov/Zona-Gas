@@ -49,7 +49,7 @@ namespace WFEmailSender.InstantPot
 
         public string logPath = "Data/log.txt";
 
-        public string mainSubject = "Проследяване на поръчка";
+        public string mainSubject = "Документи от Instant Bulgaria към поръчка";
 
         public string defSourceDir = "";
         public string defDestDir = "";
@@ -1072,7 +1072,7 @@ namespace WFEmailSender.InstantPot
                 mail.From = new MailAddress(userEmail, userAlias);
 
                 mail.To.Add(emailTo);
-                mail.Subject = mainSubject + " " + properties.OrderNo;
+                mail.Subject = mainSubject + " #" + properties.OrderNo;
 
                 //get the right html and edit it accordingly
                 mail.Body = getBodyHtml(properties);

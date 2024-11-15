@@ -91,7 +91,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 55;
-            this.label1.Text = "version 1.2.7";
+            this.label1.Text = "version 1.2.8";
             // 
             // cbDelFiles
             // 
