@@ -86,7 +86,16 @@ On the left is where the user configures the banner image and banner advertiseme
         Version 1.2.6:
             - InstantPotTBILisingTemplate renamed to 'AirFryerTrackingTemplate.html'. Renamed the string in 'Categories' tab from 'TBI' to 'AirFryer'. 
             - Added new template 'AirPurifierTrackingTemplate.html' for Air Purifiers. The string in 'Categories' tab should be 'AirPurifier'.
-            - Added new template 'SparePartsTrackingTemplate.html' for Spare Parts. The string in 'Categories' tab should be 'SpareParts'. ";
+            - Added new template 'SparePartsTrackingTemplate.html' for Spare Parts. The string in 'Categories' tab should be 'SpareParts'. 
+
+        Version 1.2.7:
+            - Added fiscal receipt sending together with the main document in Instant Pot tab.
+            - Fiscal Receipt must be:
+                * .pdf format
+                * In the same folder as the main document
+                * File name - 'Касов бон номер ' + main document number
+
+            - If fiscal receipt file is not found in the main document directory, email will be sent without it.";
 
 
             tbGuide.Text = guide;

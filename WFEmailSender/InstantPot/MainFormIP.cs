@@ -75,6 +75,10 @@ namespace WFEmailSender.InstantPot
         public bool isBodyHtml = false;
         public bool useDefaultCredentials = false;
         public bool enableSsl = false;
+
+        //fiscal receipt
+        public string fiscalReceiptPartialName = "Касов бон номер ";
+        public string fiscalReceiptFileFormat = ".pdf";
         #endregion
 
         public MainFormIP()
@@ -1041,6 +1045,20 @@ namespace WFEmailSender.InstantPot
             }
         }
 
+        public string getFiscalReceiptFileDir(string name)
+        {
+            var fileName = tbSourceDir.Text + "\\" + fiscalReceiptPartialName + name + fiscalReceiptFileFormat;
+            var exists = File.Exists(fileName);
+            if (exists)
+            {
+                return fileName;
+            } else
+            {
+                return null;
+            }
+        }
+
+
         ////////////////////////////////////////////////////// send emails ////////////////////////////////////////////////////////////
         private void sendEmails(DocumentPropertiesIP properties, string emailTo)
         {
@@ -1062,6 +1080,14 @@ namespace WFEmailSender.InstantPot
 
                 Attachment attachment = new Attachment(properties.DocFileDir);
                 mail.Attachments.Add(attachment);
+
+                //try to attach fiscal receipt
+                var fiscalReceiptFileName = getFiscalReceiptFileDir(properties.DocumentNo);
+                if(fiscalReceiptFileName != null)
+                {
+                    Attachment fiscalReceipt = new Attachment(fiscalReceiptFileName);
+                    mail.Attachments.Add(fiscalReceipt);
+                }
 
                 SmtpServer.Port = port;
                 SmtpServer.EnableSsl = enableSsl;
